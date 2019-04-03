@@ -12,23 +12,29 @@ public static class InputComponentsLookup {
     public const int Crouch = 1;
     public const int FreeScreen = 2;
     public const int Horizontal = 3;
-    public const int Keyboard = 4;
-    public const int Mouse = 5;
-    public const int Roll = 6;
-    public const int Run = 7;
-    public const int Vertical = 8;
+    public const int LeftMouse = 4;
+    public const int MouseHorizontal = 5;
+    public const int MouseVertical = 6;
+    public const int RightMouse = 7;
+    public const int Roll = 8;
+    public const int Run = 9;
+    public const int Unique = 10;
+    public const int Vertical = 11;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "CameraRotate",
         "Crouch",
         "FreeScreen",
         "Horizontal",
-        "Keyboard",
-        "Mouse",
+        "LeftMouse",
+        "MouseHorizontal",
+        "MouseVertical",
+        "RightMouse",
         "Roll",
         "Run",
+        "Unique",
         "Vertical"
     };
 
@@ -37,10 +43,13 @@ public static class InputComponentsLookup {
         typeof(CrouchComponent),
         typeof(FreeScreenComponent),
         typeof(HorizontalComponent),
-        typeof(KeyboardComponent),
-        typeof(MouseComponent),
+        typeof(LeftMouseComponent),
+        typeof(MouseHorizontalComponent),
+        typeof(MouseVerticalComponent),
+        typeof(RightMouseComponent),
         typeof(RollComponent),
         typeof(RunComponent),
+        typeof(UniqueComponent),
         typeof(VerticalComponent)
     };
 }

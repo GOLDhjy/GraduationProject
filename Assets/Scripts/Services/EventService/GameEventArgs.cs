@@ -17,9 +17,11 @@ namespace MyService
         public InputEntity InputEntity;
         public bool Idle = true;
     }
-    public class JumpArgs : GameEventArgs
+    public class AttackArgs : GameEventArgs
     {
-        public static readonly int Id = typeof(JumpArgs).GetHashCode();
+        public static readonly int Id = typeof(AttackArgs).GetHashCode();
+        public InputEntity InputEntity;
+        public bool Attack = false;
 
     }
     public class RandomIdleArgs : GameEventArgs

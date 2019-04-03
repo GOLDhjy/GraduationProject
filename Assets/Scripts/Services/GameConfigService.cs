@@ -11,6 +11,8 @@ namespace MyService
         public string PlayerPrefabPath = "Prefabs/Player";
 
 
+        public float AttackWindowTime = 0.2f;
+
         public float PlayerMoveSpeed = 3;
         public float PlayerRotateSpeed = 4f;
     }

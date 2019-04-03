@@ -69,7 +69,7 @@ namespace MyService
 
             if (CurrentState != null && CurrentState.type == s)
             {
-                Debug.Log("当前状态与变化状态一致无须修改");
+                //Debug.Log("当前状态与变化状态一致无须修改");
                 return false;
             }
 

@@ -36,13 +36,31 @@ public class CameraRotateComponent :IComponent
 {
 
 }
-[Input,Unique]
-public class KeyboardComponent : IComponent
+[Input]
+public class LeftMouseComponent : IComponent
 {
 
 }
-[Input,Unique]
-public class MouseComponent : IComponent
+[Input]
+public class RightMouseComponent : IComponent
 {
 
 }
+[Input]
+public class MouseHorizontalComponent : IComponent
+{
+    public float Value;
+}
+[Input]
+public class MouseVerticalComponent :IComponent
+{
+    public float Value;
+}
+
+[Input,Unique]
+public class UniqueComponent : IComponent
+{
+
+}
+
+

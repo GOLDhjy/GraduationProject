@@ -16,10 +16,12 @@ namespace MyService
         public PlayerEntity PlayerEntity;
         public AIPlayer(PlayerEntity playerEntity)
         {
+            MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             PlayerEntity = playerEntity;
             AddState(new PlayerMovement());
             AddState(new PlayerRoll());
+            AddState(new PlayerAttack());
             ChangeState(AIStateEnum.Movement);
         }
 
@@ -46,7 +48,7 @@ namespace MyService
         {
             if (CurrentState == null)
             {
-                Debug.LogError("当前ViewMode状态为空，执行失败");
+                Debug.LogError("当前AIState状态为空，执行失败");
                 return;
             }
             CurrentState.OnState();
@@ -70,7 +72,7 @@ namespace MyService
                 CurrentState.ExitState();
             }
             CurrentState = StateDic[s];
-            Debug.Log("修改ViewMode为:" + s.ToString());
+            Debug.Log("修改AIState为:" + s.ToString());
             CurrentState.EnterState();
             CurrentState.OnState();
             return true;
@@ -79,16 +81,17 @@ namespace MyService
         {
             //Log.AI("Change State Force " + GetAttr().gameObject + " state " + s);
 
-            if (CurrentState != null && CurrentState.type == s)
-            {
-                return false;
-            }
+            //if (CurrentState != null && CurrentState.type == s)
+            //{
+            //    Debug.Log("当前状态与改变状态一致，无须改变");
+            //    return false;
+            //}
             if (CurrentState != null)
             {
                 CurrentState.ExitState();
             }
             CurrentState = StateDic[s];
-            Debug.Log("修改ViewMode为:" + s.ToString());
+            Debug.Log("修改AIState为:" + s.ToString());
             CurrentState.EnterState();
             CurrentState.OnState();
             return true;
@@ -98,15 +101,29 @@ namespace MyService
             DodgeArgs dodgeArgs = gameEventArgs as DodgeArgs;
             if (dodgeArgs.Dodge == true)
             {
-                if(PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
-                {
-                    Debug.Log("IsTag : Dodge");
-                }
-                if(!PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
-                    ChangeStateForce(AIStateEnum.Roll);
-                
+                //if(PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
+                //{
+                //    Debug.Log("IsTag : Dodge");
+                //}
+                //if (!PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
+                ChangeStateForce(AIStateEnum.Roll);
+            }
+            else
+            {
+                ChangeStateForce(AIStateEnum.Movement);
             }
         }
-
+        public void OnEventAttack(object sender, GameEventArgs gameEventArgs)
+        {
+            AttackArgs attackArgs = gameEventArgs as AttackArgs;
+            if(attackArgs!= null && attackArgs.Attack)
+            {
+                ChangeStateForce(AIStateEnum.Attack);
+            }
+            else if(attackArgs.Attack == false)
+            {
+                ChangeStateForce(AIStateEnum.Movement);
+            }
+        }
     }
 }

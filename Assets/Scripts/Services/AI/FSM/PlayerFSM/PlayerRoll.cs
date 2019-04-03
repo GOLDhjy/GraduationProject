@@ -27,11 +27,11 @@ namespace MyService
         public override void OnState()
         {
 
-            if(!AIPlayerController.PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
-            {
-                Debug.Log(AIPlayerController.PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).ToString());
-                AIPlayerController.ChangeState(AIStateEnum.Movement);
-            }
+            //if(!AIPlayerController.PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
+            //{
+            //    Debug.Log(AIPlayerController.PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).ToString());
+            //    AIPlayerController.ChangeState(AIStateEnum.Movement);
+            //}
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MyService
         Movement,
         Jump,
         Attack,
-        Stop,
+        RandomIdle,
         Died,
         Roll
     }

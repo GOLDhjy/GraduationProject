@@ -33,7 +33,7 @@ public class PlayerMoveSystem : IExecuteSystem , IInitializeSystem
 
     public void Initialize()
     {
-        InputEntity = m_Contexts.input.keyboardEntity;
+        InputEntity = m_Contexts.input.uniqueEntity;
         PlayerEntity = m_Contexts.player.localPlayerEntity;
         //LogService.Instance.Log(LogLevel.info, PlayerEntity.rotateSpeed.Value.ToString());
         if (PlayerEntity.gameObject.gameobject == null)
