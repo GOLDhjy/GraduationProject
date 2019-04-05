@@ -9,19 +9,22 @@
 public static class GameComponentsLookup {
 
     public const int Camera = 0;
-    public const int MainCamera = 1;
-    public const int ViewModeController = 2;
+    public const int GameTransform = 1;
+    public const int MainCamera = 2;
+    public const int ViewModeController = 3;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
         "Camera",
+        "GameTransform",
         "MainCamera",
         "ViewModeController"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(CameraComponent),
+        typeof(GameTransformComponent),
         typeof(MainCameraComponent),
         typeof(ViewModeControllerComponent)
     };

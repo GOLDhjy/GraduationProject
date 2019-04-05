@@ -14,11 +14,14 @@ namespace MyService
         public AIState CurrentState { get => currentState; set => currentState = value; }
         Dictionary<AIStateEnum, AIState> StateDic = new Dictionary<AIStateEnum, AIState>();
         public PlayerEntity PlayerEntity;
-        public AIPlayer(PlayerEntity playerEntity)
+        public GameEntity MainCamera;
+        public AIPlayer(PlayerEntity playerEntity,GameEntity gameEntity)
         {
+
             MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             PlayerEntity = playerEntity;
+            MainCamera = gameEntity;
             AddState(new PlayerMovement());
             AddState(new PlayerRoll());
             AddState(new PlayerAttack());
@@ -101,12 +104,11 @@ namespace MyService
             DodgeArgs dodgeArgs = gameEventArgs as DodgeArgs;
             if (dodgeArgs.Dodge == true)
             {
-                //if(PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
-                //{
-                //    Debug.Log("IsTag : Dodge");
-                //}
-                //if (!PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).IsTag("Dodge"))
-                ChangeStateForce(AIStateEnum.Roll);
+                Vector3 TargetDirection = new Vector3(dodgeArgs.InputEntity.horizontal.Value, 0, dodgeArgs.InputEntity.vertical.Value);
+                var dir = Vector3.Slerp(PlayerEntity.transform.Value.forward, TargetDirection, 0.9f);
+                PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
+
+                ChangeState(AIStateEnum.Roll);
             }
             else
             {
@@ -116,9 +118,9 @@ namespace MyService
         public void OnEventAttack(object sender, GameEventArgs gameEventArgs)
         {
             AttackArgs attackArgs = gameEventArgs as AttackArgs;
-            if(attackArgs!= null && attackArgs.Attack)
+            if(attackArgs!= null && attackArgs.Attack )
             {
-                ChangeStateForce(AIStateEnum.Attack);
+                ChangeState(AIStateEnum.Attack);
             }
             else if(attackArgs.Attack == false)
             {

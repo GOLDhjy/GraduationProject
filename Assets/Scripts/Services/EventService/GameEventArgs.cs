@@ -17,6 +17,11 @@ namespace MyService
         public InputEntity InputEntity;
         public bool Idle = true;
     }
+    public class MouseMovementArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(MouseMovementArgs).GetHashCode();
+        public InputEntity InputEntity;
+    }
     public class AttackArgs : GameEventArgs
     {
         public static readonly int Id = typeof(AttackArgs).GetHashCode();

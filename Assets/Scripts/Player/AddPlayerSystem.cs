@@ -11,11 +11,15 @@ using Entitas.Unity;
 public class AddPlayerSystem : IInitializeSystem
 {
     readonly Transform Parent = new GameObject("MyPlayer").transform;
+
     readonly PlayerContext m_context;
+    readonly GameContext gameContext;
     PlayerEntity player;
+    GameEntity MainCamera;
     public AddPlayerSystem(Contexts contexts)
     {
         m_context = contexts.player;
+        gameContext = contexts.game;
         m_context.isLocalPlayer = true;
     }
 
@@ -45,7 +49,5 @@ public class AddPlayerSystem : IInitializeSystem
         player.AddRotateSpeed(GameConfigService.Instance.PlayerRotateSpeed);
         player.AddHp(100f);
         player.isFreeView = true;
-        player.AddViewMode(new PlayerViewModeController(ref player));
-
     }
 }

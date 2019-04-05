@@ -15,13 +15,15 @@ namespace MyService
 
         public override void EnterState()
         {
+            //MyEventSystem.Instance.Subscribe(MovementArgs.Id, OnEventMovement);
             AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Roll;
+            AIPlayerController.PlayerEntity.animator.Value.SetTrigger("Actions");
             AIPlayerController.PlayerEntity.animator.Value.SetTrigger("Dodge");
         }
 
         public override void ExitState()
         {
-             
+            //MyEventSystem.Instance.UnSubscribe(MovementArgs.Id, OnEventMovement);
         }
 
         public override void OnState()
@@ -32,6 +34,15 @@ namespace MyService
             //    Debug.Log(AIPlayerController.PlayerEntity.animator.Value.GetCurrentAnimatorStateInfo(0).ToString());
             //    AIPlayerController.ChangeState(AIStateEnum.Movement);
             //}
+        }
+        public void OnEventMovement(object sender, GameEventArgs gameEventArgs)
+        {
+            //AttackArgs args = gameEventArgs as AttackArgs;
+            MovementArgs args = gameEventArgs as MovementArgs;
+            Vector3 TargetDirection = new Vector3(args.InputEntity.horizontal.Value, 0, args.InputEntity.vertical.Value);
+            //Debug.Log(TargetDirection.ToString());
+            var dir = Vector3.Slerp(AIPlayerController.PlayerEntity.transform.Value.forward, TargetDirection, 0.5f);
+            AIPlayerController.PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
         }
     }
 }

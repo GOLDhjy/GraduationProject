@@ -89,13 +89,19 @@ namespace MyService
                 TmpSpeed = AIPlayerController.PlayerEntity.moveSpeed.Value;
                 AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Walk;
             }
-                Vector3 TargetPosition = new Vector3(movementArgs.InputEntity.horizontal.Value, 0, movementArgs.InputEntity.vertical.Value) * TmpSpeed * Time.deltaTime;
-                AIPlayerController.PlayerEntity.rigidbody.Value.MovePosition(AIPlayerController.PlayerEntity.gameObject.gameobject.transform.position + TargetPosition);
 
-                Vector3 TargetDirection = new Vector3(movementArgs.InputEntity.horizontal.Value, 0, movementArgs.InputEntity.vertical.Value);
-                //Debug.Log(TargetDirection.ToString());
-                var dir = Vector3.Slerp(AIPlayerController.PlayerEntity.transform.Value.forward, TargetDirection, GameConfigService.Instance.PlayerRotateSpeed * Time.deltaTime);
-                AIPlayerController.PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
+            Vector3 TargetDirection = new Vector3(movementArgs.InputEntity.horizontal.Value, 0, movementArgs.InputEntity.vertical.Value);
+            //Debug.Log(TargetDirection.ToString());
+            TargetDirection = Quaternion.Euler(0, AIPlayerController.MainCamera.gameTransform.Value.rotation.eulerAngles.y, 0)* TargetDirection;
+            var dir = Vector3.Slerp(AIPlayerController.PlayerEntity.transform.Value.forward, TargetDirection, GameConfigService.Instance.PlayerRotateSpeed * Time.deltaTime);
+            AIPlayerController.PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
+
+
+            Vector3 TargetPosition = new Vector3(movementArgs.InputEntity.horizontal.Value, 0, movementArgs.InputEntity.vertical.Value) * TmpSpeed * Time.deltaTime;
+            Vector3 NetTarget = TargetPosition.magnitude * TargetDirection.normalized;
+            AIPlayerController.PlayerEntity.rigidbody.Value.MovePosition(AIPlayerController.PlayerEntity.gameObject.gameobject.transform.position + NetTarget);
+
+                
         }
     }
 }

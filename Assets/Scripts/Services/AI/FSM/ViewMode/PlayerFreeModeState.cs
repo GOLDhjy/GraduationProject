@@ -21,7 +21,7 @@ namespace MyService
             get
             {
                 if(aIPlayer == null)
-                    aIPlayer = new AIPlayer(PlayerViewModeController.PlayerEntity);
+                    aIPlayer = new AIPlayer(PlayerViewModeController.PlayerEntity, PlayerViewModeController.MainCamera);
                 return aIPlayer;
             }
             set

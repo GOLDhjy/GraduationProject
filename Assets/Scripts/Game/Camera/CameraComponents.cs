@@ -15,6 +15,11 @@ public class CameraComponent : IComponent
     public Camera Camera;
 }
 [Game]
+public class GameTransformComponent : IComponent
+{
+    public Transform Value;
+}
+[Game]
 public class ViewModeControllerComponent : IComponent
 {
     public CameraViewModeController Value;

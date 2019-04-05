@@ -23,7 +23,6 @@ namespace MyService
             switch (level)
             {
                 case LogLevel.info:
-                    Debug.Log("-><color=#00ff00ff>" + str + "</color>");//可以使用富文本自定义颜色
                     //FileOperater.WriteTest(FilePath, str);
                     break;
                 case LogLevel.err:

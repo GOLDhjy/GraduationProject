@@ -11,14 +11,16 @@ namespace MyService
     {
         private IPlayerViewModeState currentState;
         public PlayerEntity PlayerEntity;
+        public GameEntity MainCamera;
         public IPlayerViewModeState CurrentState { get => currentState; set => currentState = value; }
         Dictionary<ViewModeEnum, IPlayerViewModeState> StateDic = new Dictionary<ViewModeEnum, IPlayerViewModeState>();
 
 
-        public PlayerViewModeController(ref PlayerEntity playerEntity)
+        public PlayerViewModeController(ref PlayerEntity playerEntity , GameEntity gameEntity)
         {
             
             PlayerEntity = playerEntity;
+            MainCamera = gameEntity;
             //生成控制器时添加需要的状态进去
             //StateDic.Add(ViewModeEnum.Free, new FreeModeState());
             //StateDic.Add(ViewModeEnum.Lock, new LockModeState());

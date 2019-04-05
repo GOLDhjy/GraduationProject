@@ -8,6 +8,7 @@ namespace MyService
 {
     public class PlayerAttack : AIState
     {
+        float PressTime;
         public PlayerAttack()
         {
             type = AIStateEnum.Attack;
@@ -17,8 +18,9 @@ namespace MyService
         {
             MyEventSystem.Instance.Subscribe(MovementArgs.Id, OnEventMovement);
             AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Attack;
+            //AIPlayerController.PlayerEntity.animator.Value.SetTrigger("Actions");
             AIPlayerController.PlayerEntity.animator.Value.SetTrigger("Attack");
-            AIPlayerController.PlayerEntity.animator.Value.SetInteger("AttackId", Convert.ToInt16(UnityEngine.Random.Range(1, 6)));
+            //AIPlayerController.PlayerEntity.animator.Value.SetInteger("AttackId", Convert.ToInt16(UnityEngine.Random.Range(1, 6)));
 
         }
 
@@ -45,10 +47,11 @@ namespace MyService
             //AttackArgs args = gameEventArgs as AttackArgs;
             MovementArgs args = gameEventArgs as MovementArgs;
             Vector3 TargetDirection = new Vector3(args.InputEntity.horizontal.Value, 0, args.InputEntity.vertical.Value);
+            TargetDirection = Quaternion.Euler(0, AIPlayerController.MainCamera.camera.Camera.transform.rotation.eulerAngles.y, 0) * TargetDirection;
             //Debug.Log(TargetDirection.ToString());
             var dir = Vector3.Slerp(AIPlayerController.PlayerEntity.transform.Value.forward, TargetDirection, GameConfigService.Instance.PlayerRotateSpeed * Time.deltaTime);
             AIPlayerController.PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
         }
-        
+
     }
 }

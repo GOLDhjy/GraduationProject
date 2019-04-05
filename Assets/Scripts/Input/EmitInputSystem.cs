@@ -40,6 +40,8 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
 
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
+        #region 移动控制输入
+        //键盘移动旋转输入
         if ((Math.Abs(h) > 0.05 || Math.Abs(v) > 0.05) && Input.GetKey(KeyCode.LeftShift))
         {
             UniqueInputEntity.ReplaceHorizontal(h);
@@ -60,9 +62,27 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
             UniqueInputEntity.ReplaceVertical(0);
             MyEventSystem.Instance.Invoke(MovementArgs.Id, this, new MovementArgs() { InputEntity = UniqueInputEntity, Idle = true });
         }
+        #endregion
 
 
-        if(Input.GetKeyDown(KeyCode.Space))
+
+        //鼠标移动输入
+        if ((Math.Abs(Mouse_h) > 0.05 || Math.Abs(Mouse_v) > 0.05))
+        {
+            UniqueInputEntity.ReplaceMouseHorizontal(Mouse_h);
+            UniqueInputEntity.ReplaceMouseVertical(Mouse_v);
+            MyEventSystem.Instance.Invoke(MouseMovementArgs.Id, this, new MouseMovementArgs() { InputEntity = UniqueInputEntity });
+        }
+        else
+        {
+            UniqueInputEntity.ReplaceMouseHorizontal(0);
+            UniqueInputEntity.ReplaceMouseVertical(0);
+            MyEventSystem.Instance.Invoke(MouseMovementArgs.Id, this, new MouseMovementArgs() { InputEntity = UniqueInputEntity });
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             UniqueInputEntity.isRoll = true;
             MyEventSystem.Instance.Invoke(DodgeArgs.Id, this,new DodgeArgs() { Dodge = true , InputEntity = UniqueInputEntity });

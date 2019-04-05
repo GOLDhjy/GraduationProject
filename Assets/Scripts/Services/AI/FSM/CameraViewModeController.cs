@@ -11,18 +11,20 @@ namespace MyService
 
         private ICameraViewModeState currentState;
         public GameEntity MainCamera;
+        public PlayerEntity PlayerEntity;
         public ICameraViewModeState CurrentState { get => currentState; set => currentState = value; }
         Dictionary<ViewModeEnum, ICameraViewModeState> StateDic = new Dictionary<ViewModeEnum, ICameraViewModeState>();
 
 
-        public CameraViewModeController(GameEntity gameEntity)
+        public CameraViewModeController(GameEntity gameEntity,PlayerEntity playerEntity)
         {
             MainCamera = gameEntity;
+            PlayerEntity = playerEntity;
             //生成控制器时添加需要的状态进去
-            //StateDic.Add(ViewModeEnum.Free, new FreeModeState());
-            //StateDic.Add(ViewModeEnum.Lock, new LockModeState());
+
             AddState(new CameraFreeModeState());
             ChangeState(ViewModeEnum.Free);
+
             //AddState(new CameraLockModeState());
         }
 
@@ -56,12 +58,9 @@ namespace MyService
         }
         public bool ChangeState(ViewModeEnum s)
         {
-            //Log.AI("Change State " + GetAttr().gameObject + " state " + s);
 
             if (!StateDic.ContainsKey(s))
             {
-                //Debug.LogError("Who Not Has Such State "+GetAttr().gameObject+" state "+s);
-                //Log.Sys("gameObject No State " + GetAttr().gameObject + " state " + s);
                 Debug.LogError("不包含此状态，修改状态失败");
                 return false;
             }
@@ -85,13 +84,7 @@ namespace MyService
         }
         public bool ChangeStateForce(ViewModeEnum s)
         {
-            //Log.AI("Change State Force " + GetAttr().gameObject + " state " + s);
 
-            if (CurrentState != null && CurrentState.type == s)
-            {
-
-                return false;
-            }
             if (CurrentState != null)
             {
                 CurrentState.ExitState();
