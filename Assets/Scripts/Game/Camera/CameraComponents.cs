@@ -24,3 +24,8 @@ public class ViewModeControllerComponent : IComponent
 {
     public CameraViewModeController Value;
 }
+[Game]
+public class AudioSourceComponent : IComponent
+{
+    public AudioSource Value;
+}

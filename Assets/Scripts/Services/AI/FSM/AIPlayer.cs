@@ -17,7 +17,7 @@ namespace MyService
         public GameEntity MainCamera;
         public AIPlayer(PlayerEntity playerEntity,GameEntity gameEntity)
         {
-
+            MyEventSystem.Instance.Subscribe(RandomIdleArgs.Id, OnEventRandomIdle);
             MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             PlayerEntity = playerEntity;
@@ -25,9 +25,16 @@ namespace MyService
             AddState(new PlayerMovement());
             AddState(new PlayerRoll());
             AddState(new PlayerAttack());
+            AddState(new PlayerRandomIdle());
             ChangeState(AIStateEnum.Movement);
         }
-
+        //在改变状态时一定要执行取消事件
+        public void UnSubEvent()
+        {
+            MyEventSystem.Instance.UnSubscribe(RandomIdleArgs.Id, OnEventRandomIdle);
+            MyEventSystem.Instance.UnSubscribe(AttackArgs.Id, OnEventAttack);
+            MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
+        }
         public void AddState(AIState state)
         {
             if (StateDic.ContainsKey(state.type))
@@ -60,7 +67,7 @@ namespace MyService
         {
             if (!StateDic.ContainsKey(s))
             {
-                //Debug.LogError("Who Not Has Such State "+GetAttr().gameObject+" state "+s);
+                Debug.LogError("Who Not Has Such State  state "+s);
                 //Log.Sys("gameObject No State " + GetAttr().gameObject + " state " + s);
                 return false;
             }
@@ -123,6 +130,18 @@ namespace MyService
                 ChangeState(AIStateEnum.Attack);
             }
             else if(attackArgs.Attack == false)
+            {
+                ChangeStateForce(AIStateEnum.Movement);
+            }
+        }
+        public void OnEventRandomIdle(object sender,GameEventArgs gameEventArgs)
+        {
+            RandomIdleArgs args = gameEventArgs as RandomIdleArgs;
+            if(args.RandomIdle)
+            {
+                ChangeState(AIStateEnum.RandomIdle);
+            }
+            else if (args.RandomIdle == false)
             {
                 ChangeStateForce(AIStateEnum.Movement);
             }

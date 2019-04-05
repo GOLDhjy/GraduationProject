@@ -17,7 +17,9 @@ namespace MyService
         public float PlayerRotateSpeed = 8f;
 
 
-        public float CameraMoveSpeed = 2f; 
+        public float CameraMoveSpeed = 2f;
+
+        public string MusicPath = "Musics/";
     }
 
 }

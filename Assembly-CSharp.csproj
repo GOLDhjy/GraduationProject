@@ -64,6 +64,7 @@
     <Compile Include="Assets\Generated\Components\GameConfigComponent.cs" />
     <Compile Include="Assets\Generated\Contexts.cs" />
     <Compile Include="Assets\Generated\Feature.cs" />
+    <Compile Include="Assets\Generated\Game\Components\GameAudioSourceComponent.cs" />
     <Compile Include="Assets\Generated\Game\Components\GameCameraComponent.cs" />
     <Compile Include="Assets\Generated\Game\Components\GameGameTransformComponent.cs" />
     <Compile Include="Assets\Generated\Game\Components\GameMainCameraComponent.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\Generated\UI\UIContext.cs" />
     <Compile Include="Assets\Generated\UI\UIEntity.cs" />
     <Compile Include="Assets\Generated\UI\UIMatcher.cs" />
+    <Compile Include="Assets\RandomIdleAnim.cs" />
     <Compile Include="Assets\Resources\Fonts\Script\scriptTexttest.cs" />
     <Compile Include="Assets\Scripts\AnimationSM\AttackAnim.cs" />
     <Compile Include="Assets\Scripts\AnimationSM\DodgeAnim.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets\Scripts\Services\AI\FSM\IStateController.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerDied.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerHit.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerJump.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerRandomIdle.cs" />
@@ -157,6 +160,7 @@
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\CameraLockModeState.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\PlayerFreeModeState.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\PlayerLockModeState.cs" />
+    <Compile Include="Assets\Scripts\Services\AudioService.cs" />
     <Compile Include="Assets\Scripts\Services\EventService\EventSystem.cs" />
     <Compile Include="Assets\Scripts\Services\EventService\GameEventArgs.cs" />
     <Compile Include="Assets\Scripts\Services\FileService.cs" />
@@ -175,6 +179,7 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Opsive\UltimateCharacterController\Demo\Shaders\3DText.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

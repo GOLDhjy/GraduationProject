@@ -8,14 +8,16 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Camera = 0;
-    public const int GameTransform = 1;
-    public const int MainCamera = 2;
-    public const int ViewModeController = 3;
+    public const int AudioSource = 0;
+    public const int Camera = 1;
+    public const int GameTransform = 2;
+    public const int MainCamera = 3;
+    public const int ViewModeController = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "AudioSource",
         "Camera",
         "GameTransform",
         "MainCamera",
@@ -23,6 +25,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AudioSourceComponent),
         typeof(CameraComponent),
         typeof(GameTransformComponent),
         typeof(MainCameraComponent),

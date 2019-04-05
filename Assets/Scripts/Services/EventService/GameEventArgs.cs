@@ -32,6 +32,7 @@ namespace MyService
     public class RandomIdleArgs : GameEventArgs
     {
         public static readonly int Id = typeof(RandomIdleArgs).GetHashCode();
+        public bool RandomIdle = false;
     }
     public class DodgeArgs : GameEventArgs
     {

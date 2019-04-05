@@ -9,6 +9,7 @@ namespace MyService
         INVALID = -1,
         Movement,
         Jump,
+        Hit,
         Attack,
         RandomIdle,
         Died,

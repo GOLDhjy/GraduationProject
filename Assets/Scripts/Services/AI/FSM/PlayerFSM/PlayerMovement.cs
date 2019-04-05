@@ -7,6 +7,7 @@ namespace MyService
     public class PlayerMovement : AIState
     {
         float speed=0;
+        float IdleTime = 0;
         public PlayerMovement()
         {
             type = AIStateEnum.Movement;
@@ -14,6 +15,7 @@ namespace MyService
 
         public override void EnterState()
         {
+            IdleTime = 0;
             MyEventSystem.Instance.Subscribe(MovementArgs.Id, Movement);
             AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Idle;
         }
@@ -25,8 +27,15 @@ namespace MyService
 
         public override void OnState()
         {
+            IdleTime += Time.deltaTime;
+            Debug.Log("IdleTime:" + IdleTime);
+            if(IdleTime>15f)
+            {
+                
+                MyEventSystem.Instance.Invoke(RandomIdleArgs.Id, this, new RandomIdleArgs() { RandomIdle = true });
+            }
             //Debug.Log(AIPlayerController.PlayerEntity.transform.Value.InverseTransformDirection(AIPlayerController.PlayerEntity.rigidbody.Value.velocity));
-            if(AIPlayerController.PlayerEntity.animState.Value == AnimStateEnum.Idle)
+            if (AIPlayerController.PlayerEntity.animState.Value == AnimStateEnum.Idle)
             {
                 speed = Mathf.Lerp(speed, 0, Time.deltaTime*2);
                 AIPlayerController.PlayerEntity.animator.Value.SetFloat("Speed", speed);
@@ -77,15 +86,18 @@ namespace MyService
             if (movementArgs.Idle)
             {
                 AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Idle;
+
                 return;
             }
             if (movementArgs.InputEntity.isRun)
             {
+                IdleTime = 0;
                 TmpSpeed = AIPlayerController.PlayerEntity.moveSpeed.Value+2f;
                 AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Run;
             }
             else
             {
+                IdleTime = 0;
                 TmpSpeed = AIPlayerController.PlayerEntity.moveSpeed.Value;
                 AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Walk;
             }

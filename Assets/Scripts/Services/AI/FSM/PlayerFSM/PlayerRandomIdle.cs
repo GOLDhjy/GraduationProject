@@ -15,7 +15,8 @@ namespace MyService
 
         public override void EnterState()
         {
-
+            AIPlayerController.PlayerEntity.animator.Value.SetInteger("RandomId", UnityEngine.Random.Range(1, 7));
+            AIPlayerController.PlayerEntity.animator.Value.SetTrigger("RandomIdle");
         }
 
         public override void ExitState()

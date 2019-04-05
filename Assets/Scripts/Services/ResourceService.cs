@@ -14,7 +14,7 @@ namespace MyService
             T obj = Resources.Load<T>(assetName);
             if (obj == null)
             {
-                LogService.Instance.Log(LogLevel.err, "Can't Load Asset:"+ assetName);
+               Debug.LogError("Can't Load Asset:"+ assetName);
             }
             return obj;
         }

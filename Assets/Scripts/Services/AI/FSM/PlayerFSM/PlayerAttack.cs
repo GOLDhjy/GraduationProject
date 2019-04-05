@@ -44,7 +44,6 @@ namespace MyService
         }
         public void OnEventMovement(object sender,GameEventArgs gameEventArgs)
         {
-            //AttackArgs args = gameEventArgs as AttackArgs;
             MovementArgs args = gameEventArgs as MovementArgs;
             Vector3 TargetDirection = new Vector3(args.InputEntity.horizontal.Value, 0, args.InputEntity.vertical.Value);
             TargetDirection = Quaternion.Euler(0, AIPlayerController.MainCamera.camera.Camera.transform.rotation.eulerAngles.y, 0) * TargetDirection;
