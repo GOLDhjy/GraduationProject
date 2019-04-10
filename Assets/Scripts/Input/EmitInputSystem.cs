@@ -32,6 +32,7 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
         UniqueInputEntity.isRightMouse = false;
         UniqueInputEntity.AddMouseHorizontal(0);
         UniqueInputEntity.AddMouseVertical(0);
+        UniqueInputEntity.isFreeScreen = true;
     }
     public void Execute()
     {
@@ -92,7 +93,7 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
             UniqueInputEntity.isRoll = false;
         }
 
-
+        //攻击
         if (Input.GetMouseButtonDown(0))
         {
             UniqueInputEntity.isLeftMouse = true;
@@ -102,7 +103,20 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
         {
             UniqueInputEntity.isLeftMouse = false;
         }
-
+        //转换视角模式
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            UniqueInputEntity.isFreeScreen = !UniqueInputEntity.isFreeScreen;
+            if(UniqueInputEntity.isFreeScreen)
+            {
+                MyEventSystem.Instance.Invoke(ChangeViewArgs.Id, this, new ChangeViewArgs(){ InputEntity = UniqueInputEntity, viewModeEnum = ViewModeEnum.Free});
+            }
+            else
+            {
+                MyEventSystem.Instance.Invoke(ChangeViewArgs.Id, this, new ChangeViewArgs(){ InputEntity = UniqueInputEntity, viewModeEnum = ViewModeEnum.Lock });
+            }
+            
+        }
 
     }
 

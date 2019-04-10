@@ -23,8 +23,8 @@ public class AddStateMSystem : IInitializeSystem
     {
         PlayerEntity = PlayerContext.localPlayerEntity;
         GameEntity = GameContext.mainCameraEntity;
-        GameEntity.AddViewModeController(new MyService.CameraViewModeController(GameEntity, PlayerEntity));
-        PlayerEntity.AddViewMode(new PlayerViewModeController(ref PlayerEntity, GameEntity));
+        GameEntity.AddViewModeController(new MyService.CameraViewModeController(GameEntity, PlayerEntity));//给摄像机添加状态机
+        PlayerEntity.AddViewMode(new PlayerViewModeController(ref PlayerEntity, GameEntity));//给角色添加状态机
     }
 }
 

@@ -20,6 +20,7 @@ public enum PostEnum
     Stand,
     Crouch
 }
+
 [Player,Unique]
 public class LocalPlayerComponent : IComponent
 {
@@ -89,4 +90,16 @@ public class ColliderComponent : IComponent
 public class AnimatorComponent : IComponent
 {
     public Animator Value;
+}
+[Player]
+public class PlayerAudioComponent : IComponent
+{
+    public AudioSource Value;
+}
+
+//玩家锁定的敌人
+[Player]
+public class LockEnemyComponent : IComponent
+{
+    public Transform Value;
 }

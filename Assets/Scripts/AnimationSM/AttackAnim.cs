@@ -22,8 +22,8 @@ public class AttackAnim : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log(stateInfo.shortNameHash);
-        Debug.Log("时间"+stateInfo.normalizedTime);
+        //Debug.Log(stateInfo.shortNameHash);
+        //Debug.Log("时间"+stateInfo.normalizedTime);
         //Debug.Log(animator.GetBool("IsCombat"));
         if (stateInfo.normalizedTime >= 0.4f && stateInfo.normalizedTime<0.5)
         {

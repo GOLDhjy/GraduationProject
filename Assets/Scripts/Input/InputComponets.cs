@@ -36,6 +36,7 @@ public class CameraRotateComponent :IComponent
 {
 
 }
+//左右鼠标是否按下
 [Input]
 public class LeftMouseComponent : IComponent
 {
@@ -46,6 +47,7 @@ public class RightMouseComponent : IComponent
 {
 
 }
+//鼠标移动参数
 [Input]
 public class MouseHorizontalComponent : IComponent
 {

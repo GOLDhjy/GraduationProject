@@ -17,23 +17,30 @@ namespace MyService
         public GameEntity MainCamera;
         public AIPlayer(PlayerEntity playerEntity,GameEntity gameEntity)
         {
-            MyEventSystem.Instance.Subscribe(RandomIdleArgs.Id, OnEventRandomIdle);
-            MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
-            MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             PlayerEntity = playerEntity;
             MainCamera = gameEntity;
             AddState(new PlayerMovement());
             AddState(new PlayerRoll());
             AddState(new PlayerAttack());
             AddState(new PlayerRandomIdle());
-            ChangeState(AIStateEnum.Movement);
+            AddState(new PlayerInvalid());
         }
         //在改变状态时一定要执行取消事件
         public void UnSubEvent()
         {
+            
             MyEventSystem.Instance.UnSubscribe(RandomIdleArgs.Id, OnEventRandomIdle);
             MyEventSystem.Instance.UnSubscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
+            MyEventSystem.Instance.UnSubscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
+            ChangeState(AIStateEnum.INVALID);
+        }
+        public void SubEvent()
+        {
+            MyEventSystem.Instance.Subscribe(RandomIdleArgs.Id, OnEventRandomIdle);
+            MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
+            MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
+            MyEventSystem.Instance.Subscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
         }
         public void AddState(AIState state)
         {
@@ -43,7 +50,7 @@ namespace MyService
                 return;
             }
             StateDic[state.type] = state;
-            Debug.Log("添加状态成功:" + state.type.ToString());
+            Debug.Log("角色添加状态成功:" + state.type.ToString());
             state.SetController(this);
         }
         public void DeleteState(AIState state)
@@ -58,7 +65,7 @@ namespace MyService
         {
             if (CurrentState == null)
             {
-                Debug.LogError("当前AIState状态为空，执行失败");
+                Debug.LogError("当前角色AIState状态为空，执行失败");
                 return;
             }
             CurrentState.OnState();
@@ -82,7 +89,7 @@ namespace MyService
                 CurrentState.ExitState();
             }
             CurrentState = StateDic[s];
-            Debug.Log("修改AIState为:" + s.ToString());
+            Debug.Log("修改角色AIState为:" + s.ToString());
             CurrentState.EnterState();
             CurrentState.OnState();
             return true;
@@ -101,7 +108,7 @@ namespace MyService
                 CurrentState.ExitState();
             }
             CurrentState = StateDic[s];
-            Debug.Log("修改AIState为:" + s.ToString());
+            Debug.Log("修改角色AIState为:" + s.ToString());
             CurrentState.EnterState();
             CurrentState.OnState();
             return true;
@@ -144,6 +151,19 @@ namespace MyService
             else if (args.RandomIdle == false)
             {
                 ChangeStateForce(AIStateEnum.Movement);
+            }
+        }
+        public void OnEventChangeToMovement(object sender, GameEventArgs gameEventArgs)
+        {
+            if(gameEventArgs == null)
+            {
+                Debug.LogError("NULL Reference");
+                return;
+            }
+            ChangeToMovementArgs args = gameEventArgs as ChangeToMovementArgs;
+            if(args.Movement)
+            {
+                ChangeState(AIStateEnum.Movement);
             }
         }
     }

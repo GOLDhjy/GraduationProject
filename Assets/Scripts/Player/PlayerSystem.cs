@@ -11,5 +11,6 @@ public class PlayerSystem : Feature
     {
         Add(new AddPlayerSystem(contexts));
         Add(new PlayerMoveSystem(contexts));
+        Add(new PlayerAudioSystem(contexts));
     }
 }

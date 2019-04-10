@@ -11,6 +11,7 @@ namespace MyService
     }
     //玩家输入事件
     #region
+        //这参数为movement状态里面获取键盘输入值
     public class MovementArgs : GameEventArgs
     {
         public static readonly int Id = typeof(MovementArgs).GetHashCode();
@@ -44,5 +45,26 @@ namespace MyService
     {
         public static readonly int Id = typeof(StandArgs).GetHashCode();
     }
+    //将状态改为movement
+    public class ChangeToMovementArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(ChangeToMovementArgs).GetHashCode();
+        public bool Movement = false;
+    }
     #endregion
+    //播放音乐事件
+    public class AudioArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(AudioArgs).GetHashCode();
+        public string Name;
+        public AudioEnum AudioEnum;
+    }
+    //更改视角事件
+
+    public class ChangeViewArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(ChangeViewArgs).GetHashCode();
+        public InputEntity InputEntity;
+        public ViewModeEnum viewModeEnum;
+    }
 }

@@ -298,3 +298,4 @@ D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.csproj.CoreCompileI
 D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.dll
 D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.pdb
+D:\UnityProjects\GraduationProject\Temp\bin\Debug\BehaviorDesigner.Runtime.dll

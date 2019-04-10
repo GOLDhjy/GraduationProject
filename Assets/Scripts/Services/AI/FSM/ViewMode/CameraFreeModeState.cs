@@ -10,6 +10,12 @@ namespace MyService
     public class CameraFreeModeState : ICameraViewModeState
     {
         float x = 0, y = 0;
+
+        public CameraFreeModeState()
+        {
+            type = ViewModeEnum.Free;
+        }
+
         public override void EnterState()
         {
             MyEventSystem.Instance.Subscribe(MouseMovementArgs.Id, OnMouseMovementEvent);

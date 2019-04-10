@@ -33,11 +33,14 @@ namespace MyService
 
         public override void EnterState()
         {
-
+            AIPlayer.SubEvent();
+            MyEventSystem.Instance.Invoke(ChangeToMovementArgs.Id, this, new ChangeToMovementArgs() { Movement = true });
         }
 
         public override void ExitState()
         {
+            //AIPlayer.CurrentState.ExitState();
+            AIPlayer.UnSubEvent();
             
         }
 

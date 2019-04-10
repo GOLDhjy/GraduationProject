@@ -36,12 +36,8 @@ public class AddPlayerSystem : IInitializeSystem
         player.AddRigidbody(gameObject.GetComponent<Rigidbody>());
         player.AddCollider(gameObject.GetComponent<Collider>());
         player.AddAnimator(gameObject.GetComponent<Animator>());
-        //if (gameObject.GetComponent<Animator>() == null)
-        //    Debug.Log("动画为空");
-        //else
-        //{
-        //    Debug.Log(player.animator.Value.GetFloat("Speed"));
-        //}
+        player.AddPlayerAudio(gameObject.GetComponent<AudioSource>());
+        player.AddLockEnemy(null);
         player.AddTransform(gameObject.transform);
         player.AddAnimState(AnimStateEnum.Idle);
         player.AddSword(Sword);

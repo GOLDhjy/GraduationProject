@@ -28,7 +28,7 @@ namespace MyService
         public override void OnState()
         {
             IdleTime += Time.deltaTime;
-            Debug.Log("IdleTime:" + IdleTime);
+            //Debug.Log("IdleTime:" + IdleTime);
             if(IdleTime>15f)
             {
                 

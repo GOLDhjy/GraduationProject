@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entitas;
-
+using UnityEngine;
 namespace MyService
 {
     public class PlayerViewModeController
@@ -25,8 +25,10 @@ namespace MyService
             //StateDic.Add(ViewModeEnum.Free, new FreeModeState());
             //StateDic.Add(ViewModeEnum.Lock, new LockModeState());
             AddState(new PlayerFreeModeState());
+            AddState(new PlayerLockModeState());
             ChangeState(ViewModeEnum.Free);
             //AddState(new PlayerLockModeState());
+            MyEventSystem.Instance.Subscribe(ChangeViewArgs.Id, ChangeViewEvent);
 
         }
 
@@ -34,7 +36,7 @@ namespace MyService
         {
             if (StateDic.ContainsKey(state.type))
             {
-                LogService.Instance.Log(LogLevel.info, "添加状态成功" + state.type.ToString());
+                LogService.Instance.Log(LogLevel.info, "角色添加状态成功" + state.type.ToString());
                 //Log.AI("Error Has SameState In Map " + state.type + " " + stateMap[state.type] + " " + state);
                 return;
             }
@@ -53,7 +55,7 @@ namespace MyService
         {
             if(CurrentState ==null)
             {
-                LogService.Instance.Log(LogLevel.err,"当前ViewMode状态为空，执行失败");
+               Debug.LogError("当前角色ViewMode状态为空，执行失败");
                 return;
             }
 
@@ -66,14 +68,14 @@ namespace MyService
             {
                 //Debug.LogError("Who Not Has Such State "+GetAttr().gameObject+" state "+s);
                 //Log.Sys("gameObject No State " + GetAttr().gameObject + " state " + s);
-                LogService.Instance.Log(LogLevel.err, "不包含此状态，修改状态失败");
+                Debug.Log("角色不包含此状态，修改状态失败");
                 return false;
             }
 
 
             if (CurrentState != null && CurrentState.type == s)
             {
-                LogService.Instance.Log(LogLevel.info,"当前状态与变化状态一致无须修改");
+                Debug.Log("角色当前状态与变化状态一致无须修改");
                 return false;
             }
 
@@ -84,7 +86,7 @@ namespace MyService
             CurrentState = StateDic[s];
             CurrentState.EnterState();
             CurrentState.OnState();
-            LogService.Instance.Log(LogLevel.info, "修改ViewMode为:"+s.ToString());
+            Debug.Log("修改角色ViewMode为:" + s.ToString());
             return true;
         }
         public bool ChangeStateForce(ViewModeEnum s)
@@ -101,10 +103,38 @@ namespace MyService
                 CurrentState.ExitState();
             }
             CurrentState = StateDic[s];
-            LogService.Instance.Log(LogLevel.info, "修改ViewMode为:" + s.ToString());
+            Debug.Log("修改角色ViewMode为:" + s.ToString());
             CurrentState.EnterState();
             CurrentState.OnState();
             return true;
+        }
+
+        public void ChangeViewEvent(object sender, GameEventArgs gameEventArgs)
+        {
+            if (gameEventArgs == null)
+            {
+                Debug.LogError("Null Reference");
+                return;
+            }
+            ChangeViewArgs args = gameEventArgs as ChangeViewArgs;
+            if (args == null)
+            {
+                Debug.LogError("Null Reference");
+                return;
+            }
+
+            if (args.viewModeEnum == ViewModeEnum.Free)
+            {
+                PlayerEntity.animator.Value.SetBool("LockView", false);
+                ChangeState(ViewModeEnum.Free);
+                
+            }
+            else
+            {
+                PlayerEntity.animator.Value.SetBool("LockView", true);
+                ChangeState(ViewModeEnum.Lock);
+                
+            }
         }
 
     }

@@ -11,7 +11,8 @@ namespace MyService
     {
         BGM,
         Battle,
-        Ather
+        Ather,
+        FootStep
     }
     public class AudioService : Singleton<AudioService>
     {

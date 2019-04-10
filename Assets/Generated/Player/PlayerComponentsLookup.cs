@@ -15,15 +15,17 @@ public static class PlayerComponentsLookup {
     public const int GameObject = 4;
     public const int Hp = 5;
     public const int LocalPlayer = 6;
-    public const int MoveSpeed = 7;
-    public const int Post = 8;
-    public const int Rigidbody = 9;
-    public const int RotateSpeed = 10;
-    public const int Sword = 11;
-    public const int Transform = 12;
-    public const int ViewMode = 13;
+    public const int LockEnemy = 7;
+    public const int MoveSpeed = 8;
+    public const int PlayerAudio = 9;
+    public const int Post = 10;
+    public const int Rigidbody = 11;
+    public const int RotateSpeed = 12;
+    public const int Sword = 13;
+    public const int Transform = 14;
+    public const int ViewMode = 15;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -33,7 +35,9 @@ public static class PlayerComponentsLookup {
         "GameObject",
         "Hp",
         "LocalPlayer",
+        "LockEnemy",
         "MoveSpeed",
+        "PlayerAudio",
         "Post",
         "Rigidbody",
         "RotateSpeed",
@@ -50,7 +54,9 @@ public static class PlayerComponentsLookup {
         typeof(GameObjectComponent),
         typeof(HpComponent),
         typeof(LocalPlayerComponent),
+        typeof(LockEnemyComponent),
         typeof(MoveSpeedComponent),
+        typeof(PlayerAudioComponent),
         typeof(PostComponent),
         typeof(RigidbodyComponent),
         typeof(RotateSpeedComponent),
