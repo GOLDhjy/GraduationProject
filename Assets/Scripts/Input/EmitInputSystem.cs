@@ -115,9 +115,21 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
             {
                 MyEventSystem.Instance.Invoke(ChangeViewArgs.Id, this, new ChangeViewArgs(){ InputEntity = UniqueInputEntity, viewModeEnum = ViewModeEnum.Lock });
             }
-            
         }
-
+        //蹲下
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if(UniqueInputEntity.isCrouch)
+            {
+                UniqueInputEntity.isCrouch = false;
+                MyEventSystem.Instance.Invoke(CrouchArgs.Id, this, new CrouchArgs() { Crouch = false, InputEntity = UniqueInputEntity });
+            }
+            else
+            {
+                UniqueInputEntity.isCrouch = true;
+                MyEventSystem.Instance.Invoke(CrouchArgs.Id, this, new CrouchArgs() { Crouch = true, InputEntity = UniqueInputEntity });
+            }
+        }
     }
 
     public void Cleanup()

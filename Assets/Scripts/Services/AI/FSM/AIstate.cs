@@ -13,7 +13,8 @@ namespace MyService
         Attack,
         RandomIdle,
         Died,
-        Roll
+        Roll,
+        Coruch
     }
     public class AIState
     {

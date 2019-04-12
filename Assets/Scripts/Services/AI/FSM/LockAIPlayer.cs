@@ -22,7 +22,7 @@ namespace MyService
             MainCamera = gameEntity;
             AddState(new PlayerLockMovement());
             AddState(new PlayeLockInvalid());
-
+            AddState(new PlayerLockCrouch());
         }
         //在改变状态时一定要执行取消事件
         public void UnSubEvent()
@@ -31,6 +31,7 @@ namespace MyService
             MyEventSystem.Instance.UnSubscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.UnSubscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
+            MyEventSystem.Instance.UnSubscribe(CrouchArgs.Id, OnEventCrouch);
             ChangeState(AIStateEnum.INVALID);
         }
 
@@ -40,6 +41,7 @@ namespace MyService
             MyEventSystem.Instance.Subscribe(AttackArgs.Id, OnEventAttack);
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.Subscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
+            MyEventSystem.Instance.Subscribe(CrouchArgs.Id, OnEventCrouch);
         }
         public void AddState(LockAIState state)
         {
@@ -163,6 +165,23 @@ namespace MyService
             }
             ChangeToMovementArgs args = gameEventArgs as ChangeToMovementArgs;
             if (args.Movement)
+            {
+                ChangeState(AIStateEnum.Movement);
+            }
+        }
+        public void OnEventCrouch(object sender, GameEventArgs gameEventArgs)
+        {
+            if (gameEventArgs == null)
+            {
+                Debug.LogError("NULL Reference");
+                return;
+            }
+            CrouchArgs args = gameEventArgs as CrouchArgs;
+            if (args.Crouch)
+            {
+                ChangeState(AIStateEnum.Coruch);
+            }
+            else
             {
                 ChangeState(AIStateEnum.Movement);
             }

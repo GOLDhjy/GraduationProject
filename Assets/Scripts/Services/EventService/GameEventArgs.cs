@@ -41,9 +41,11 @@ namespace MyService
         public InputEntity InputEntity;
         public bool Dodge = false;
     }
-    public class StandArgs : GameEventArgs
+    public class CrouchArgs : GameEventArgs
     {
-        public static readonly int Id = typeof(StandArgs).GetHashCode();
+        public static readonly int Id = typeof(CrouchArgs).GetHashCode();
+        public InputEntity InputEntity;
+        public bool Crouch = false;
     }
     //将状态改为movement
     public class ChangeToMovementArgs : GameEventArgs
@@ -51,6 +53,8 @@ namespace MyService
         public static readonly int Id = typeof(ChangeToMovementArgs).GetHashCode();
         public bool Movement = false;
     }
+
+
     #endregion
     //播放音乐事件
     public class AudioArgs : GameEventArgs

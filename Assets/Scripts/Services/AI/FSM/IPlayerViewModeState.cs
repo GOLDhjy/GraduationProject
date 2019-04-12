@@ -9,6 +9,7 @@ namespace MyService
 {
     public enum ViewModeEnum
     {
+        Invilid,
         Free,
         Lock
     }

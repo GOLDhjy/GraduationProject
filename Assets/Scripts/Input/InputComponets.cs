@@ -14,6 +14,7 @@ public class VerticalComponent : IComponent
 {
     public float Value;
 }
+//是否蹲下
 [Input]
 public class CrouchComponent : IComponent
 {

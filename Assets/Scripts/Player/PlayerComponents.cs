@@ -11,7 +11,8 @@ public enum AnimStateEnum
     Walk,
     Run,
     Roll,
-    Crouch,
+    CrouchIdle,
+    CrouchWalk,
     Jump,
     Attack,
 }
