@@ -93,7 +93,15 @@ namespace MyService
             else
             {
                 //AIPlayerController.PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(AIPlayerController.PlayerEntity.lockEnemy.Value.position);
-                AIPlayerController.PlayerEntity.transform.Value.LookAt(AIPlayerController.PlayerEntity.lockEnemy.Value.position);
+                //玩家一直朝向敌人
+                var TmpTarget = AIPlayerController.PlayerEntity.transform.Value.rotation;
+                var forword = AIPlayerController.PlayerEntity.lockEnemy.Value.position - AIPlayerController.PlayerEntity.transform.Value.position;
+
+                TmpTarget = Quaternion.LookRotation(forword, Vector3.up);
+                //AIPlayerController.PlayerEntity.transform.Value.LookAt(AIPlayerController.PlayerEntity.lockEnemy.Value.position);
+                //差值
+                TmpTarget = Quaternion.Slerp(AIPlayerController.PlayerEntity.transform.Value.rotation, TmpTarget, 20 * Time.deltaTime);
+                AIPlayerController.PlayerEntity.transform.Value.rotation = TmpTarget;
             }
                     
             Vector3 TargetPosition = new Vector3(movementArgs.InputEntity.horizontal.Value, 0, movementArgs.InputEntity.vertical.Value) * TmpSpeed * Time.deltaTime;

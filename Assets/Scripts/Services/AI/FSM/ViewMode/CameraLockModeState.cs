@@ -55,12 +55,15 @@ namespace MyService
             Vector3 PlayerToCamera = CameraViewModeController.MainCamera.gameTransform.Value.position - CameraViewModeController.PlayerEntity.transform.Value.position;
             Vector3 EnemyToPlayer = CameraViewModeController.PlayerEntity.transform.Value.position - Enemy.position;
             Vector3 NewDir = EnemyToPlayer.normalized;
+            //玩家到相机向上抬45°
             Vector3 NewDis = new Vector3(NewDir.x, 0.5f, NewDir.z) * 6;
-            NewDis = Vector3.Slerp(PlayerToCamera, NewDis, 10f * Time.deltaTime);
+
+            NewDis = Vector3.Slerp(PlayerToCamera, NewDis, 20f * Time.deltaTime);
             var TmpPosition = CameraViewModeController.PlayerEntity.transform.Value.position;//用来保存玩家之前的位置
+            //设置相机位置
             CameraViewModeController.MainCamera.gameTransform.Value.position = NewDis + CameraViewModeController.PlayerEntity.transform.Value.position;
 
-            TmpPosition = Vector3.Slerp(TmpPosition, CameraViewModeController.MainCamera.gameTransform.Value.position, 10f * Time.deltaTime);
+            TmpPosition = Vector3.Slerp(TmpPosition, CameraViewModeController.PlayerEntity.transform.Value.position, 20f*Time.deltaTime);
             CameraViewModeController.MainCamera.camera.Camera.transform.LookAt(TmpPosition);
         }
     }

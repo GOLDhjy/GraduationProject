@@ -23,6 +23,9 @@ namespace MyService
             AddState(new PlayerLockMovement());
             AddState(new PlayeLockInvalid());
             AddState(new PlayerLockCrouch());
+            AddState(new PlayerLockRoll());
+            AddState(new PlayerLockRandomIdle());
+            AddState(new PlayerLockAttack());
         }
         //在改变状态时一定要执行取消事件
         public void UnSubEvent()

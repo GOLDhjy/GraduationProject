@@ -584,6 +584,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3101, guid: 734b5fa9ee7c9b14280782057e99dc12, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101, guid: 734b5fa9ee7c9b14280782057e99dc12, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3244, guid: 734b5fa9ee7c9b14280782057e99dc12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 734b5fa9ee7c9b14280782057e99dc12, type: 3}
