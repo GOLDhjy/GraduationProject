@@ -734,7 +734,11 @@
     <Compile Include="Assets\Scripts\Services\GameConfigService.cs" />
     <Compile Include="Assets\Scripts\Services\LogService.cs" />
     <Compile Include="Assets\Scripts\Services\ResourceService.cs" />
+    <Compile Include="Assets\Scripts\Services\UIService.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD.cs" />
+    <Compile Include="Assets\Scripts\UI\IUserInterface.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectionView.cs" />
     <None Include="Assets\Entitas\Entitas.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
