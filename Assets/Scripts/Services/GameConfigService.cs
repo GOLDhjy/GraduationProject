@@ -10,16 +10,16 @@ namespace MyService
     {
         public string PlayerPrefabPath = "Prefabs/Player";
         public string UIPrefabPath = "Prefabs/UI";
+        public string MusicPath = "Musics/";
+        public string UIIcon = "UI/UITextures/Items/";
+
 
         public float AttackWindowTime = 0.2f;
-
         public float PlayerMoveSpeed = 3;
         public float PlayerRotateSpeed = 8f;
-
-
         public float CameraMoveSpeed = 2f;
 
-        public string MusicPath = "Musics/";
+       
     }
 
 }

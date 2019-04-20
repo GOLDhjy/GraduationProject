@@ -44,6 +44,7 @@ public class AddPlayerSystem : IInitializeSystem
         player.AddMoveSpeed(GameConfigService.Instance.PlayerMoveSpeed);
         player.AddRotateSpeed(GameConfigService.Instance.PlayerRotateSpeed);
         player.AddHp(100f);
+        player.AddATK(100f);
         player.isFreeView = true;
     }
 }

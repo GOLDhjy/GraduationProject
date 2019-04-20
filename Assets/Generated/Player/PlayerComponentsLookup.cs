@@ -10,26 +10,28 @@ public static class PlayerComponentsLookup {
 
     public const int Animator = 0;
     public const int AnimState = 1;
-    public const int Collider = 2;
-    public const int FreeView = 3;
-    public const int GameObject = 4;
-    public const int Hp = 5;
-    public const int LocalPlayer = 6;
-    public const int LockEnemy = 7;
-    public const int MoveSpeed = 8;
-    public const int PlayerAudio = 9;
-    public const int Post = 10;
-    public const int Rigidbody = 11;
-    public const int RotateSpeed = 12;
-    public const int Sword = 13;
-    public const int Transform = 14;
-    public const int ViewMode = 15;
+    public const int ATK = 2;
+    public const int Collider = 3;
+    public const int FreeView = 4;
+    public const int GameObject = 5;
+    public const int Hp = 6;
+    public const int LocalPlayer = 7;
+    public const int LockEnemy = 8;
+    public const int MoveSpeed = 9;
+    public const int PlayerAudio = 10;
+    public const int Post = 11;
+    public const int Rigidbody = 12;
+    public const int RotateSpeed = 13;
+    public const int Sword = 14;
+    public const int Transform = 15;
+    public const int ViewMode = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Animator",
         "AnimState",
+        "ATK",
         "Collider",
         "FreeView",
         "GameObject",
@@ -49,6 +51,7 @@ public static class PlayerComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(AnimatorComponent),
         typeof(AnimStateComponent),
+        typeof(ATKComponent),
         typeof(ColliderComponent),
         typeof(FreeViewComponent),
         typeof(GameObjectComponent),

@@ -647,6 +647,7 @@
     <Compile Include="Assets\Generated\Input\InputMatcher.cs" />
     <Compile Include="Assets\Generated\Player\Components\PlayerAnimatorComponent.cs" />
     <Compile Include="Assets\Generated\Player\Components\PlayerAnimStateComponent.cs" />
+    <Compile Include="Assets\Generated\Player\Components\PlayerATKComponent.cs" />
     <Compile Include="Assets\Generated\Player\Components\PlayerColliderComponent.cs" />
     <Compile Include="Assets\Generated\Player\Components\PlayerFreeViewComponent.cs" />
     <Compile Include="Assets\Generated\Player\Components\PlayerGameObjectComponent.cs" />
@@ -823,6 +824,10 @@
     <Compile Include="Assets\Scripts\Input\EmitInputSystem.cs" />
     <Compile Include="Assets\Scripts\Input\InputComponets.cs" />
     <Compile Include="Assets\Scripts\Input\InputSystem.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Items\BloodVial.cs" />
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\StrengthenItem.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\MonoBehavior\PlayerToe.cs" />
     <Compile Include="Assets\Scripts\MonoBehavior\Sword.cs" />

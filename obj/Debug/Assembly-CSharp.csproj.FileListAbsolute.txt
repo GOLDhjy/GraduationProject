@@ -299,3 +299,7 @@ D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.dll
 D:\UnityProjects\GraduationProject\obj\Debug\Assembly-CSharp.pdb
 D:\UnityProjects\GraduationProject\Temp\bin\Debug\BehaviorDesigner.Runtime.dll
+D:\UnityProjects\GraduationProject\Temp\bin\Debug\Assembly-CSharp.dll.CodeAnalysisLog.xml
+D:\UnityProjects\GraduationProject\Temp\bin\Debug\Assembly-CSharp.dll.lastcodeanalysissucceeded
+D:\UnityProjects\GraduationProject\Temp\bin\Debug\UnityEditor.UI.dll
+D:\UnityProjects\GraduationProject\Temp\bin\Debug\UnityEditor.UI.xml

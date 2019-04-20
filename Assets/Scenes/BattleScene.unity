@@ -303,7 +303,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3863
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1031,11 +1031,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
+  m_HDR: 1
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &1847346404
@@ -1197,6 +1197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SelectionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121199098212284145, guid: 5ed72c9ae0ed35c49a091a0df7b72c7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5121199098212284141, guid: 5ed72c9ae0ed35c49a091a0df7b72c7e,
         type: 3}
@@ -1773,5 +1778,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5121199097303241494, guid: 5ed72c9ae0ed35c49a091a0df7b72c7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 735deb1d753f1b340833443686deb837,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed72c9ae0ed35c49a091a0df7b72c7e, type: 3}
