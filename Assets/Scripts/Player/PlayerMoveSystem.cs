@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Entitas;
 using UnityEngine;
 using MyService;
+/// <summary>
+/// 废弃不用的
+/// </summary>
 public class PlayerMoveSystem : IExecuteSystem , IInitializeSystem
 {
     InputEntity InputEntity;

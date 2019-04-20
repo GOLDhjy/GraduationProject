@@ -11,7 +11,7 @@ public class GameSystems : Feature
         Add(new PlayerSystem(contexts));
         Add(new GameSystem(contexts));
         Add(new LastInitSystem(contexts));
-        
+        Add(new AddGameStateSystem(contexts));
         
     }
 }

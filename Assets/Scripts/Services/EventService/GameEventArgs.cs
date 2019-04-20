@@ -71,4 +71,16 @@ namespace MyService
         public InputEntity InputEntity;
         public ViewModeEnum viewModeEnum;
     }
+
+    //更改游戏状态
+    public class ChangeGameStateArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(ChangeGameStateArgs).GetHashCode();
+        public SceneEnum SceneEnum;
+    }
+    public class StartLoadingViewArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(StartLoadingViewArgs).GetHashCode();
+        public int num = -1;
+    }
 }

@@ -9,7 +9,7 @@ namespace MyService
     public class GameConfigService : Singleton<GameConfigService>
     {
         public string PlayerPrefabPath = "Prefabs/Player";
-        public string UIPrefabPath = "Prefabs/UI";
+        public string UIPrefabPath = "Prefabs/UI/";
         public string MusicPath = "Musics/";
         public string UIIcon = "UI/UITextures/Items/";
 

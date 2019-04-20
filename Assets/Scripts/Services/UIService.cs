@@ -23,7 +23,7 @@ namespace MyService
         }
 
         //        GameObject back = null;
-        List<GameObject> stack;
+        List<GameObject> stack = new List<GameObject>();
         //        List<GameObject> alphaStack;
         Dictionary<string, GameObject> UIDic = new Dictionary<string, GameObject>();
 
@@ -105,7 +105,7 @@ namespace MyService
             //Log.Important("Push UI View " + viewName + " " + needAlpha);
             if (UIRoot == null)
             {
-                UIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+                UIRoot = GameObject.Find("UIRoot");
             }
             //Log.GUI("UIRoot " + uiRoot);
             //if (needAlpha)
@@ -133,7 +133,13 @@ namespace MyService
             else
             {
 
-                bag = Resources.Load<GameObject>(viewName);
+                //bag = Resources.Load<GameObject>(viewName);
+                bag = ResourceService.Instance.InstantiateAsset<GameObject>(viewName);
+                if(bag == null)
+                {
+                    Debug.LogError("加载失败");
+                }
+                //Debug.Log(UIRoot.transform.position);
                 bag.transform.SetParent(UIRoot.transform);
                 UIDic[bag.ToString()] = bag;
                 bag.SetActive(true);

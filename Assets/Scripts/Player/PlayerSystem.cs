@@ -10,7 +10,7 @@ public class PlayerSystem : Feature
     public PlayerSystem(Contexts  contexts) : base("Player Systems")
     {
         Add(new AddPlayerSystem(contexts));
-        Add(new PlayerMoveSystem(contexts));
+        //Add(new PlayerMoveSystem(contexts));
         Add(new PlayerAudioSystem(contexts));
     }
 }

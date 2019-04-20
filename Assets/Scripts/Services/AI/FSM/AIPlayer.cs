@@ -15,6 +15,7 @@ namespace MyService
         Dictionary<AIStateEnum, AIState> StateDic = new Dictionary<AIStateEnum, AIState>();
         public PlayerEntity PlayerEntity;
         public GameEntity MainCamera;
+        //构造函数里面保存传入信息，并且添加状态
         public AIPlayer(PlayerEntity playerEntity,GameEntity gameEntity)
         {
             PlayerEntity = playerEntity;

@@ -61,14 +61,13 @@ namespace UI
         public Button QuitGame;
         public Button BackToStart;
 
-
         private void Awake()
         {
             
             Button[] buttons = new Button[5];
             for (int i = 0; i < 5;i++)
             {
-                buttons[i] = ResourceService.Instance.InstantiateAsset<Button>(GameConfigService.Instance.UIPrefabPath + "/Button");
+                buttons[i] = ResourceService.Instance.InstantiateAsset<Button>(GameConfigService.Instance.UIPrefabPath + "Button");
                 buttons[i].transform.SetParent(SelectItemContent.transform);
 
                 Debug.Log(buttons[i].gameObject.GetComponent<RectTransform>().localScale);

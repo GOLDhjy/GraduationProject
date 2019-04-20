@@ -23,15 +23,17 @@ public partial class Contexts : Entitas.IContexts {
 
     public GameContext game { get; set; }
     public GameConfigContext gameConfig { get; set; }
+    public GameStateContext gameState { get; set; }
     public InputContext input { get; set; }
     public PlayerContext player { get; set; }
     public UIContext uI { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, gameConfig, input, player, uI }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, gameConfig, gameState, input, player, uI }; } }
 
     public Contexts() {
         game = new GameContext();
         gameConfig = new GameConfigContext();
+        gameState = new GameStateContext();
         input = new InputContext();
         player = new PlayerContext();
         uI = new UIContext();
@@ -71,6 +73,7 @@ public partial class Contexts {
         try {
             CreateContextObserver(game);
             CreateContextObserver(gameConfig);
+            CreateContextObserver(gameState);
             CreateContextObserver(input);
             CreateContextObserver(player);
             CreateContextObserver(uI);

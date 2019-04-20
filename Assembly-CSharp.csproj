@@ -628,6 +628,11 @@
     <Compile Include="Assets\Generated\GameConfig\GameConfigContext.cs" />
     <Compile Include="Assets\Generated\GameConfig\GameConfigEntity.cs" />
     <Compile Include="Assets\Generated\GameConfig\GameConfigMatcher.cs" />
+    <Compile Include="Assets\Generated\GameState\GameStateAttribute.cs" />
+    <Compile Include="Assets\Generated\GameState\GameStateComponentsLookup.cs" />
+    <Compile Include="Assets\Generated\GameState\GameStateContext.cs" />
+    <Compile Include="Assets\Generated\GameState\GameStateEntity.cs" />
+    <Compile Include="Assets\Generated\GameState\GameStateMatcher.cs" />
     <Compile Include="Assets\Generated\Input\Components\InputCameraRotateComponent.cs" />
     <Compile Include="Assets\Generated\Input\Components\InputCrouchComponent.cs" />
     <Compile Include="Assets\Generated\Input\Components\InputFreeScreenComponent.cs" />
@@ -820,6 +825,8 @@
     <Compile Include="Assets\Scripts\Game\LastInitSystem.cs" />
     <Compile Include="Assets\Scripts\GameConfig\GameConfig.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameState\AddGameStateSystem.cs" />
+    <Compile Include="Assets\Scripts\GameState\GameStateSystem.cs" />
     <Compile Include="Assets\Scripts\GameSystems.cs" />
     <Compile Include="Assets\Scripts\Input\EmitInputSystem.cs" />
     <Compile Include="Assets\Scripts\Input\InputComponets.cs" />
@@ -868,6 +875,11 @@
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\PlayerFreeModeState.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\PlayerInvalidModeState.cs" />
     <Compile Include="Assets\Scripts\Services\AI\FSM\ViewMode\PlayerLockModeState.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\SceneFSM\AIScene.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\SceneFSM\BattleScene.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\SceneFSM\IStateScene.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\SceneFSM\PauseState.cs" />
+    <Compile Include="Assets\Scripts\Services\AI\SceneFSM\StartScene.cs" />
     <Compile Include="Assets\Scripts\Services\AudioService.cs" />
     <Compile Include="Assets\Scripts\Services\EventService\EventSystem.cs" />
     <Compile Include="Assets\Scripts\Services\EventService\GameEventArgs.cs" />
@@ -875,11 +887,14 @@
     <Compile Include="Assets\Scripts\Services\GameConfigService.cs" />
     <Compile Include="Assets\Scripts\Services\LogService.cs" />
     <Compile Include="Assets\Scripts\Services\ResourceService.cs" />
+    <Compile Include="Assets\Scripts\Services\SecneService.cs" />
     <Compile Include="Assets\Scripts\Services\UIService.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\HUD.cs" />
     <Compile Include="Assets\Scripts\UI\IUserInterface.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadingView.cs" />
     <Compile Include="Assets\Scripts\UI\SelectionView.cs" />
+    <Compile Include="Assets\Scripts\UI\StartView.cs" />
     <None Include="Assets\RPG and MMO UI 6\Readme.txt" />
     <None Include="Assets\Entitas\Entitas.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
