@@ -78,6 +78,7 @@ namespace MyService
         public static readonly int Id = typeof(ChangeGameStateArgs).GetHashCode();
         public SceneEnum SceneEnum;
     }
+    //开始进度条UI
     public class StartLoadingViewArgs : GameEventArgs
     {
         public static readonly int Id = typeof(StartLoadingViewArgs).GetHashCode();

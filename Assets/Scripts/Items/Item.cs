@@ -4,12 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace MyService
 {
-    public class Item : MonoBehaviour
+    public class Item 
     {
+        public Main main = new Main();
+        protected string m_name;
+        protected int id;
+        protected string iconName;
+        public virtual string Name { get => m_name; set => m_name = value; }
+        public virtual int Id { get => id; set => id = value; }
+        public virtual string IconName { get => iconName; set => iconName = value; }
 
-        Texture GetItemIcon(string name)
+        public Sprite GetItemIcon(string name)
         {
-            Texture tmp = ResourceService.Instance.LoadAsset<Texture>(GameConfigService.Instance.UIIcon + name);
+            Sprite tmp = ResourceService.Instance.LoadAsset<Sprite>(GameConfigService.Instance.UIIcon + name);
             if (tmp)
             {
                 return tmp;
@@ -20,7 +27,9 @@ namespace MyService
                 return null;
             }
         }
-        public virtual IEnumerator UseItem()
+        public virtual void UseItem()
+        { }
+        public virtual IEnumerator UseItemIEnumerator()
         {
             return null;
         }

@@ -133,8 +133,15 @@ namespace MyService
             {
                 PlayerEntity.animator.Value.SetBool("LockView", true);
                 ChangeState(ViewModeEnum.Lock);
-                
             }
+        }
+        public bool CheckCanTransition()
+        {
+            if (AIScene.Instance.CurrentState.Type == SceneEnum.Pause)
+            {
+                return false;
+            }
+            return true;
         }
 
     }

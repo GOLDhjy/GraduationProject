@@ -10,29 +10,50 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
 {
     private InputEntity UniqueInputEntity;
     readonly InputContext m_contexts;
-    private float h, v,Mouse_h,Mouse_v;
+    private float h, v, Mouse_h, Mouse_v;
 
     public EmitInputSystem(Contexts contexts)
     {
         m_contexts = contexts.input;
-        m_contexts.isUnique = true;
     }
 
     public void Initialize()
     {
         //添加Input对象的各个组件
-        UniqueInputEntity = m_contexts.uniqueEntity;
-        UniqueInputEntity.AddHorizontal(0);
-        UniqueInputEntity.AddVertical(0);
-        UniqueInputEntity.isRun = false;
-        UniqueInputEntity.isRoll = false;
-        UniqueInputEntity.isFreeScreen = true;
-        UniqueInputEntity.isCrouch = false;
-        UniqueInputEntity.isLeftMouse = false;
-        UniqueInputEntity.isRightMouse = false;
-        UniqueInputEntity.AddMouseHorizontal(0);
-        UniqueInputEntity.AddMouseVertical(0);
-        UniqueInputEntity.isFreeScreen = true;
+        //if (m_contexts.isUnique == true)
+        //{
+        //    UniqueInputEntity = m_contexts.uniqueEntity;
+
+        //    UniqueInputEntity.ReplaceHorizontal(0);
+        //    UniqueInputEntity.ReplaceVertical(0);
+        //    UniqueInputEntity.isRun = false;
+        //    UniqueInputEntity.isRoll = false;
+        //    UniqueInputEntity.isFreeScreen = true;
+        //    UniqueInputEntity.isCrouch = false;
+        //    UniqueInputEntity.isLeftMouse = false;
+        //    UniqueInputEntity.isRightMouse = false;
+        //    UniqueInputEntity.ReplaceMouseHorizontal(0);
+        //    UniqueInputEntity.ReplaceMouseVertical(0);
+        //    UniqueInputEntity.isFreeScreen = true;
+        //}
+
+        //if (AIScene.Instance.CurrentState == null || AIScene.Instance.CurrentState.Type == SceneEnum.Battle)
+        //{
+            m_contexts.isUnique = true;
+
+            UniqueInputEntity = m_contexts.uniqueEntity;
+            UniqueInputEntity.AddHorizontal(0);
+            UniqueInputEntity.AddVertical(0);
+            UniqueInputEntity.isRun = false;
+            UniqueInputEntity.isRoll = false;
+            UniqueInputEntity.isFreeScreen = true;
+            UniqueInputEntity.isCrouch = false;
+            UniqueInputEntity.isLeftMouse = false;
+            UniqueInputEntity.isRightMouse = false;
+            UniqueInputEntity.AddMouseHorizontal(0);
+            UniqueInputEntity.AddMouseVertical(0);
+            UniqueInputEntity.isFreeScreen = true;
+        //}
     }
     public void Execute()
     {
@@ -82,7 +103,7 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
         }
 
 
-
+        //翻滚
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UniqueInputEntity.isRoll = true;
@@ -129,6 +150,11 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
                 UniqueInputEntity.isCrouch = true;
                 MyEventSystem.Instance.Invoke(CrouchArgs.Id, this, new CrouchArgs() { Crouch = true, InputEntity = UniqueInputEntity });
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            MyEventSystem.Instance.Invoke(ChangeGameStateArgs.Id, this, new ChangeGameStateArgs() { SceneEnum = SceneEnum.Pause });
+            
         }
     }
 

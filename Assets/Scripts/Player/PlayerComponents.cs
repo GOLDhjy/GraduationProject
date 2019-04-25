@@ -44,8 +44,15 @@ public class ATKComponent : IComponent
 {
     public float Value;
 }
+//玩家当前血量
 [Player]
 public class HpComponent : IComponent
+{
+    public float Value;
+}
+//玩家最大血量
+[Player]
+public class MaxHpComponent : IComponent
 {
     public float Value;
 }
@@ -97,11 +104,13 @@ public class ColliderComponent : IComponent
 {
     public Collider Value;
 }
+//动画控制器
 [Player]
 public class AnimatorComponent : IComponent
 {
     public Animator Value;
 }
+//声音播放器
 [Player]
 public class PlayerAudioComponent : IComponent
 {
@@ -113,6 +122,12 @@ public class PlayerAudioComponent : IComponent
 public class LockEnemyComponent : IComponent
 {
     public Transform Value;
+}
+//背包
+[Player]
+public class BackPackComponent : IComponent
+{
+    public BackPack Value;
 }
 
 

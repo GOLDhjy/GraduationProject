@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace MyService
 {
-    public class SecneService : Singleton<SecneService>
+    public class SceneService : Singleton<SceneService>
     {
         int scenemin = 0;
         int scenemax = 1;
@@ -40,8 +40,8 @@ namespace MyService
             }
             //var LoadingCanvas = ResourceService.Instance.LoadAsset<Canvas>();
             GameObject LoadingCanvas = UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "LoadingCanvas");
-            Slider LoadingSlider = LoadingCanvas.transform.Find("Slider").GetComponent<Slider>();
-            Text LoadingText = LoadingCanvas.transform.Find("Text").GetComponent<Text>();
+            //Slider LoadingSlider = LoadingCanvas.transform.Find("Slider").GetComponent<Slider>();
+            //Text LoadingText = LoadingCanvas.transform.Find("Text").GetComponent<Text>();
 
             AsyncOperation async = SceneManager.LoadSceneAsync(name);
 
@@ -54,6 +54,7 @@ namespace MyService
                 Debug.LogError("加载场景序号不对");
                 return;
             }
+            //打开加载界面
             GameObject LoadingCanvas = UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "LoadingCanvas");
 
             MyEventSystem.Instance.Invoke(StartLoadingViewArgs.Id, this, new StartLoadingViewArgs() { num = num});

@@ -22,7 +22,7 @@ namespace MyService
         public AudioSource AudioSource { get => m_audioSource; set => m_audioSource = value; }
         public AudioClip AudioClip { get => m_AudioClip; set => m_AudioClip = value; }
 
-        public void PlayWiehAS(AudioSource audioSource, AudioEnum audioEnum, string name)
+        public void PlayWithAS(AudioSource audioSource, AudioEnum audioEnum, string name)
         {
             AudioSource = audioSource;
             AudioClip = ResourceService.Instance.LoadAsset<AudioClip>(GameConfigService.Instance.MusicPath + audioEnum .ToString()+"/"+ name);

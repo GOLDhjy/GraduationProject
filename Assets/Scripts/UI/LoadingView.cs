@@ -19,10 +19,15 @@ namespace UI
 
         private void Awake()
         {
+            //这里也是只注册了，没有取消
             MyEventSystem.Instance.Subscribe(StartLoadingViewArgs.Id, StartLoadingVieweEvent);
         }
         private void Update()
         {
+        }
+        private void OnDestroy()
+        {
+            MyEventSystem.Instance.UnSubscribe(StartLoadingViewArgs.Id, StartLoadingVieweEvent);
         }
         private IEnumerator StartLoadingView()
         {
@@ -45,15 +50,22 @@ namespace UI
                 }
             }
             toProgress = 100;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             while (displayProgress <= toProgress)
             {
                 ++displayProgress;
                 SetLoadingPercentage(displayProgress);
-                Text.text = "加载中..." + Slider.value * 100 + "%";
+                if (Slider.value == 1)
+                {
+                    Text.text = "加载完成";
+                }
+                else
+                    Text.text = "加载中..." + Slider.value * 100 + "%";
+
                 yield return new WaitForEndOfFrame();
             }
             Slider.value = 1;
+            //yield return new WaitForSeconds(0.1f);
             UIService.Instance.PopView();
             async.allowSceneActivation = true;
             async = null;

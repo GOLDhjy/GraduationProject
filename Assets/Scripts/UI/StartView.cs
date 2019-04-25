@@ -35,14 +35,14 @@ namespace UI
         //设置
         private void OptionEvent()
         {
-            
+            UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "Tips");
         }
 
         //开始游戏
         private void StartEvent()
         {
             MyEventSystem.Instance.Invoke(ChangeGameStateArgs.Id, this, new ChangeGameStateArgs() { SceneEnum = SceneEnum.Battle });
-            SecneService.Instance.LoadSceneAsync(1);
+            SceneService.Instance.LoadSceneAsync(1);
 
         }
     }

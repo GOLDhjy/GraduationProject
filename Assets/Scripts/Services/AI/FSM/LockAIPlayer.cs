@@ -121,6 +121,9 @@ namespace MyService
 
         public void OnEventDodge(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
+
             DodgeArgs dodgeArgs = gameEventArgs as DodgeArgs;
             if (dodgeArgs.Dodge == true)
             {
@@ -137,6 +140,9 @@ namespace MyService
         }
         public void OnEventAttack(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
+
             AttackArgs attackArgs = gameEventArgs as AttackArgs;
             if (attackArgs != null && attackArgs.Attack)
             {
@@ -149,6 +155,9 @@ namespace MyService
         }
         public void OnEventRandomIdle(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
+
             RandomIdleArgs args = gameEventArgs as RandomIdleArgs;
             if (args.RandomIdle)
             {
@@ -161,6 +170,9 @@ namespace MyService
         }
         public void OnEventChangeToMovement(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
+
             if (gameEventArgs == null)
             {
                 Debug.LogError("NULL Reference");
@@ -174,6 +186,9 @@ namespace MyService
         }
         public void OnEventCrouch(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
+
             if (gameEventArgs == null)
             {
                 Debug.LogError("NULL Reference");
@@ -188,6 +203,14 @@ namespace MyService
             {
                 ChangeState(AIStateEnum.Movement);
             }
+        }
+        public bool CheckCanTransition()
+        {
+            if (AIScene.Instance.CurrentState.Type == SceneEnum.Pause)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

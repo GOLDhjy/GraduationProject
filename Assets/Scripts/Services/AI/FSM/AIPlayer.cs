@@ -122,6 +122,8 @@ namespace MyService
             DodgeArgs dodgeArgs = gameEventArgs as DodgeArgs;
             if (dodgeArgs.Dodge == true)
             {
+                if (!CheckCanTransition())
+                    return;
                 Vector3 TargetDirection = new Vector3(dodgeArgs.InputEntity.horizontal.Value, 0, dodgeArgs.InputEntity.vertical.Value);
                 var dir = Vector3.Slerp(PlayerEntity.transform.Value.forward, TargetDirection, 0.9f);
                 PlayerEntity.transform.Value.rotation = Quaternion.LookRotation(dir);
@@ -135,6 +137,8 @@ namespace MyService
         }
         public void OnEventAttack(object sender, GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
             AttackArgs attackArgs = gameEventArgs as AttackArgs;
             if(attackArgs!= null && attackArgs.Attack )
             {
@@ -147,6 +151,8 @@ namespace MyService
         }
         public void OnEventRandomIdle(object sender,GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
             RandomIdleArgs args = gameEventArgs as RandomIdleArgs;
             if(args.RandomIdle)
             {
@@ -159,7 +165,9 @@ namespace MyService
         }
         public void OnEventChangeToMovement(object sender, GameEventArgs gameEventArgs)
         {
-            if(gameEventArgs == null)
+            if (!CheckCanTransition())
+                return;
+            if (gameEventArgs == null)
             {
                 Debug.LogError("NULL Reference");
                 return;
@@ -172,6 +180,8 @@ namespace MyService
         }
         public void OnEventCrouch(object sender,GameEventArgs gameEventArgs)
         {
+            if (!CheckCanTransition())
+                return;
             if (gameEventArgs == null)
             {
                 Debug.LogError("NULL Reference");
@@ -186,6 +196,16 @@ namespace MyService
             {
                 ChangeState(AIStateEnum.Movement);
             }
+        }
+
+        //需要加转换条件就可以在这里加
+        public bool CheckCanTransition()
+        {
+            if(AIScene.Instance.CurrentState.Type == SceneEnum.Pause)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

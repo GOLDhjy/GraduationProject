@@ -141,7 +141,7 @@ namespace MyService
                 }
                 //Debug.Log(UIRoot.transform.position);
                 bag.transform.SetParent(UIRoot.transform);
-                UIDic[bag.ToString()] = bag;
+                UIDic[viewName] = bag;
                 bag.SetActive(true);
             }
 

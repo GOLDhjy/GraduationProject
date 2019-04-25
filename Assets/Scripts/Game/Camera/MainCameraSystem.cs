@@ -15,24 +15,35 @@ public class MainCameraSystem : IInitializeSystem, IExecuteSystem
     public MainCameraSystem(Contexts contexts)
     {
         m_GameContext = contexts.game;
-        m_GameContext.isMainCamera = true;
+        
         PlayerContext = contexts.player;
     }
     public void Initialize()
     {
-        PlayerEntity = PlayerContext.localPlayerEntity;
-        m_MainCamera = m_GameContext.mainCameraEntity;
-        m_MainCamera.AddCamera(Camera.main);
-        m_MainCamera.AddGameTransform(Camera.main.transform);  
-        m_MainCamera.gameTransform.Value.gameObject.AddComponent<AudioSource>();
-        AudioSource audioSource = m_MainCamera.gameTransform.Value.GetComponent<AudioSource>();
-        m_MainCamera.AddAudioSource(audioSource);
-        AudioService.Instance.PlayWiehAS(m_MainCamera.audioSource.Value,AudioEnum.BGM,"BattleBGM");
+        //if (AIScene.Instance.CurrentState == null || AIScene.Instance.CurrentState.Type == SceneEnum.Battle)
+        //{
+
+            //m_MainCamera = m_GameContext.mainCameraEntity;
+            //AudioService.Instance.PlayWithAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "BattleBGM");
+
+            m_GameContext.isMainCamera = true;
+            PlayerEntity = PlayerContext.localPlayerEntity;
+            m_MainCamera = m_GameContext.mainCameraEntity;
+            m_MainCamera.AddCamera(Camera.main);
+
+            // GameObject.DontDestroyOnLoad(Camera.main.gameObject);
+
+            m_MainCamera.AddGameTransform(Camera.main.transform);
+            m_MainCamera.gameTransform.Value.gameObject.AddComponent<AudioSource>();
+            AudioSource audioSource = m_MainCamera.gameTransform.Value.GetComponent<AudioSource>();
+            m_MainCamera.AddAudioSource(audioSource);
+            AudioService.Instance.PlayWithAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "BattleBGM");
+        //}
         //AudioService.Instance.PlayWiehAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "1");
     }
     public void Execute()
     {
-        m_MainCamera.viewModeController.Value.DoState();
+       
     }
 
     

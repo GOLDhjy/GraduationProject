@@ -22,7 +22,7 @@ public class PlayerToe : MonoBehaviour
         {
             AudioSource AudioSource = transform.GetComponentInParent<AudioSource>();
             //AudioSource = gameObject.GetComponentInParent<AudioSource>();
-            AudioService.Instance.PlayWiehAS(AudioSource, AudioEnum.FootStep, "FootstepTile2");
+            AudioService.Instance.PlayWithAS(AudioSource, AudioEnum.FootStep, "FootstepTile2");
             if(this.gameObject.tag == "lefttoe")
             {
                 Debug.Log("lefttoe");

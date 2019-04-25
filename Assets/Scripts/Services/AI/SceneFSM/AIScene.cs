@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Entitas;
 namespace MyService
 {
-    public class AIScene
+    public class AIScene : Singleton<AIScene>
     {
+        public Contexts m_contexts;
         private IStateScene currentState;
 
         public IStateScene CurrentState { get => currentState; set => currentState = value; }
-        Dictionary<SceneEnum, IStateScene> StateDic = new Dictionary<SceneEnum, IStateScene>();
+        private Dictionary<SceneEnum, IStateScene> StateDic = new Dictionary<SceneEnum, IStateScene>();
+
 
         public AIScene()
         {
-            AddState(new StartScene());
-            AddState(new BattleScene());
-            AddState(new PauseState());
         }
+
         public void AddState(IStateScene state)
         {
             if (StateDic.ContainsKey(state.Type))

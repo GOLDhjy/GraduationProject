@@ -101,6 +101,11 @@ namespace MyService
 
         public void ChangeViewEvent(object sender,GameEventArgs gameEventArgs)
         {
+
+
+            if (!CheckCanTransition())
+                return;
+
             if (gameEventArgs == null)
             {
                 Debug.LogError("Null Reference");
@@ -121,6 +126,14 @@ namespace MyService
             {
                 ChangeState(ViewModeEnum.Lock);
             }
+        }
+        public bool CheckCanTransition()
+        {
+            if (AIScene.Instance.CurrentState.Type == SceneEnum.Pause)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
