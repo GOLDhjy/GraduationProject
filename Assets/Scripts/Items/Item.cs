@@ -10,6 +10,8 @@ namespace MyService
         protected string m_name;
         protected int id;
         protected string iconName;
+
+        public const string DefaultIconName = "JazzCreateFontUI";
         public virtual string Name { get => m_name; set => m_name = value; }
         public virtual int Id { get => id; set => id = value; }
         public virtual string IconName { get => iconName; set => iconName = value; }

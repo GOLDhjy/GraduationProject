@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 133, y: 36.2}
+  m_AnchoredPosition: {x: 133, y: 36.199997}
   m_SizeDelta: {x: 200, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7116014579187585510
@@ -152,7 +152,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ab1b7fa6fc1e407479b5aefe40c857fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d61d12d2d79f7244e9f4de798743e099, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -226,7 +226,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d61d12d2d79f7244e9f4de798743e099, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 2812742077656120973}
   - component: {fileID: 2812742077656120972}
   - component: {fileID: 2812742077656120975}
+  - component: {fileID: 1085666881782453187}
   m_Layer: 5
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -285,7 +286,7 @@ Canvas:
   m_GameObject: {fileID: 2812742077656120974}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -336,6 +337,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1085666881782453187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812742077656120974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d542112b724f34492a934bf7c4ba6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpBar: {fileID: 7116014579187585510}
+  Main: {fileID: 2812742076842121042}
+  Left: {fileID: 2812742077596906695}
 --- !u!1 &4130436238186478437
 GameObject:
   m_ObjectHideFlags: 0

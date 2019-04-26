@@ -175,7 +175,7 @@ namespace UI
             int tmp = IsContainType(item, m_CurrentItems);
             if (tmp != -1)
             {
-                if (tmp == index2)
+                if (tmp == index1)
                 {
                     m_CurrentItems[tmp] = null;
                 }
@@ -249,6 +249,9 @@ namespace UI
 
         void QuitEvent()
         {
+            //通知更新UI图标
+            MyEventSystem.Instance.Invoke(UpdateItemIconArgs.Id, this, new UpdateItemIconArgs() { });
+            //切换场景
             MyEventSystem.Instance.Invoke(ChangeGameStateArgs.Id, this, new ChangeGameStateArgs() { SceneEnum = SceneEnum.Battle });
 
         }
@@ -305,6 +308,7 @@ namespace UI
         //事件通知UI更新
         private void UpdateItemButton()
         {
+            string Name;
             int m_count = PlayerController.Instance.GetCountFromBack();
             Dictionary<int, Dictionary<Item, int>> m_backpack = PlayerController.Instance.GetBackPackDate();
             Item[] m_CurrentItems = PlayerController.Instance.GetCurrentPackDate();
@@ -313,10 +317,11 @@ namespace UI
             {
                 if (m_CurrentItems[i] == null)
                 {
-                    ItemMenu[i].GetComponent<Image>().sprite = null;
+                    Name = Item.DefaultIconName;
+                    ItemMenu[i].GetComponent<Image>().sprite = ResourceService.Instance.LoadAsset<Sprite>(GameConfigService.Instance.UIIcon + Name);
                     continue;
                 }
-                string Name = m_CurrentItems[i].IconName;
+                Name = m_CurrentItems[i].IconName;
                 //SelectItem.GetComponent<Image>().sprite = item.GetItemIcon(Name);
                 ItemMenu[i].GetComponent<Image>().sprite = m_CurrentItems[i].GetItemIcon(Name);
             }

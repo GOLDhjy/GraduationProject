@@ -15,10 +15,12 @@ namespace MyService
 
         public override void EnState()
         {
+            UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "HUDCanvas");
         }
 
         public override void ExitState()
         {
+           // UIService.Instance.PopView();
         }
 
         public override void OnState()

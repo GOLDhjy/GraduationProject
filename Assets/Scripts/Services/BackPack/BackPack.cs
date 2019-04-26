@@ -10,9 +10,10 @@ namespace MyService
     {
         private Item[] currentPack = new Item[5];
         private Dictionary<int, Dictionary<Item, int>> m_ItemsPack = new Dictionary<int, Dictionary<Item, int>>();
-
+        private Item m_CurrentItem = null;
         public Dictionary<int, Dictionary<Item, int>> ItemsPack { get => m_ItemsPack; set => m_ItemsPack = value; }
         public Item[] CurrentPack { get => currentPack; set => currentPack = value; }
+        public Item CurrentItem { get => m_CurrentItem; set => m_CurrentItem = value; }
 
         public int GetItemCount()
         {

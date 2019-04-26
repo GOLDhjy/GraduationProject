@@ -32,6 +32,7 @@ public class AddStateMSystem : IInitializeSystem
         AIScene.Instance.AddState(new PauseState());
         AIScene.Instance.ChangeState(SceneEnum.Battle);
 
+        //添加角色状态机控制器
         if (!PlayerEntity.hasViewMode)
         {
             PlayerEntity.AddViewMode(new PlayerViewModeController(ref PlayerEntity, GameEntity));//给角色添加状态机
@@ -45,6 +46,8 @@ public class AddStateMSystem : IInitializeSystem
         PlayerEntity.backPack.Value.AddItemToBackPack(new BloodVial());
         PlayerEntity.backPack.Value.AddItemToBackPack(new BloodVial());
         PlayerEntity.backPack.Value.AddItemToBackPack(new StrengthenItem());
+
+
 
         //控制器初始化
         //PlayerController.Instance.Player = PlayerEntity;

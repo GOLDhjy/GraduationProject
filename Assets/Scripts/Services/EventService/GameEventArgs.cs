@@ -9,9 +9,13 @@ namespace MyService
     public class GameEventArgs : EventArgs
     {
     }
+    public class UIEventArgs : GameEventArgs
+    {
+
+    }
     //玩家输入事件
     #region
-        //这参数为movement状态里面获取键盘输入值
+    //这参数为movement状态里面获取键盘输入值
     public class MovementArgs : GameEventArgs
     {
         public static readonly int Id = typeof(MovementArgs).GetHashCode();
@@ -83,5 +87,13 @@ namespace MyService
     {
         public static readonly int Id = typeof(StartLoadingViewArgs).GetHashCode();
         public int num = -1;
+    }
+
+
+    //UI->更新Item相关
+    public class UpdateItemIconArgs : UIEventArgs
+    {
+        public static readonly int Id = typeof(UpdateItemIconArgs).GetHashCode();
+
     }
 }

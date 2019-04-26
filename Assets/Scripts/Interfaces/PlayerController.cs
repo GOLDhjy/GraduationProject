@@ -23,14 +23,22 @@ namespace MyService
             }
             set => player = value;
         }
+        //得到整个背包
         public Dictionary<int, Dictionary<Item, int>> GetBackPackDate()
         {
             return Player.backPack.Value.ItemsPack;
         }
+        //得到当前背包的5个装备物品
         public Item[] GetCurrentPackDate()
         {
             return Player.backPack.Value.CurrentPack;
         }
+        //得到HUD界面当前物品
+        public Item GetCurrentItemDate()
+        {
+            return Player.backPack.Value.CurrentItem;
+        }
+        //得到背包里面物品数量
         public int GetCountFromBack()
         {
             return Player.backPack.Value.GetItemCount();

@@ -69,5 +69,7 @@ public class AddPlayerSystem : IInitializeSystem
         player.AddATK(100f);
         player.isFreeView = true;
         //}
+
+
     }
 }

@@ -34,5 +34,6 @@ namespace MyService
         public override int Id { get => this.id; set => this.id = value; }
         public override string IconName { get => this.iconName; set => this.iconName = value; }
 
+
     }
 }
