@@ -27,6 +27,7 @@ namespace MyService
         public static readonly int Id = typeof(MouseMovementArgs).GetHashCode();
         public InputEntity InputEntity;
     }
+    //攻击
     public class AttackArgs : GameEventArgs
     {
         public static readonly int Id = typeof(AttackArgs).GetHashCode();
@@ -34,22 +35,29 @@ namespace MyService
         public bool Attack = false;
 
     }
+    //随机休闲
     public class RandomIdleArgs : GameEventArgs
     {
         public static readonly int Id = typeof(RandomIdleArgs).GetHashCode();
         public bool RandomIdle = false;
     }
+    //翻滚
     public class DodgeArgs : GameEventArgs
     {
         public static readonly int Id = typeof(DodgeArgs).GetHashCode();
         public InputEntity InputEntity;
         public bool Dodge = false;
     }
+    //下蹲
     public class CrouchArgs : GameEventArgs
     {
         public static readonly int Id = typeof(CrouchArgs).GetHashCode();
         public InputEntity InputEntity;
         public bool Crouch = false;
+    }
+    public class DieArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(DieArgs).GetHashCode();
     }
     //将状态改为movement
     public class ChangeToMovementArgs : GameEventArgs
@@ -95,5 +103,22 @@ namespace MyService
     {
         public static readonly int Id = typeof(UpdateItemIconArgs).GetHashCode();
 
+    }
+    //切换HUD上的物品,-1是左边，1是右边
+    public class ChangeCurrentItemArgs : UIEventArgs
+    {
+        public static readonly int Id = typeof(ChangeCurrentItemArgs).GetHashCode();
+        public int Der;
+    }
+
+    //UI->更新本地玩家血量
+    public class UpdateHpBarArgs : UIEventArgs
+    {
+        public static readonly int Id = typeof(UpdateHpBarArgs).GetHashCode();
+    }
+    //使用当前物品
+    public class UseCurrentItemArgs : UIEventArgs
+    {
+        public static readonly int Id = typeof(UseCurrentItemArgs).GetHashCode();
     }
 }

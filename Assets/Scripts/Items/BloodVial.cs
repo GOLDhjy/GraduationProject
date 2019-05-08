@@ -10,7 +10,7 @@ namespace MyService
     public class BloodVial : Item
     {
          
-        public float Value = 10;
+        public float Value = 50;
 
         public BloodVial()
         {
@@ -21,9 +21,13 @@ namespace MyService
 
         public override IEnumerator UseItemIEnumerator()
         {
+            ParticlesService.Instance.PlayPrefabParticle(PlayerController.Instance.GetPlayerGameObject(), "Effect7");
+            yield return new WaitForSeconds(1.5f);
             PlayerController.Instance.ChangeHpToPlayer(Value);
             Debug.Log("给玩家加血" + Value.ToString());
-            return null;
+            ParticlesService.Instance.StopPrefabParticle(PlayerController.Instance.GetPlayerGameObject(), "Effect7");
+
+            yield return null;
 
         }
         public override void UseItem()

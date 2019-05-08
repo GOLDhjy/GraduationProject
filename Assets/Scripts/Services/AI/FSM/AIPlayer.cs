@@ -26,6 +26,7 @@ namespace MyService
             AddState(new PlayerRandomIdle());
             AddState(new PlayerInvalid());
             AddState(new PlayerCrouch());
+            AddState(new PlayerDied());
         }
         //在改变状态时一定要执行取消事件
         public void UnSubEvent()
@@ -36,8 +37,12 @@ namespace MyService
             MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.UnSubscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.UnSubscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.UnSubscribe(DieArgs.Id, OnEventDie);
             ChangeState(AIStateEnum.INVALID);
         }
+
+
+
         public void SubEvent()
         {
             MyEventSystem.Instance.Subscribe(RandomIdleArgs.Id, OnEventRandomIdle);
@@ -45,6 +50,7 @@ namespace MyService
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.Subscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.Subscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.Subscribe(DieArgs.Id, OnEventDie);
         }
         public void AddState(AIState state)
         {
@@ -197,11 +203,28 @@ namespace MyService
                 ChangeState(AIStateEnum.Movement);
             }
         }
+        private void OnEventDie(object sender, GameEventArgs e)
+        {
+            if (!CheckCanTransition())
+            {
+                return;
+            }
+            if (e == null)
+            {
+                Debug.LogError("NULL Reference");
+                return;
+            }
+            ChangeState(AIStateEnum.Died);
+        }
 
         //需要加转换条件就可以在这里加
         public bool CheckCanTransition()
         {
-            if(AIScene.Instance.CurrentState.Type == SceneEnum.Pause)
+            if (CurrentState == null)
+            {
+                return true;
+            }
+            if (AIScene.Instance.CurrentState.Type == SceneEnum.Pause || CurrentState.type == AIStateEnum.Died)
             {
                 return false;
             }

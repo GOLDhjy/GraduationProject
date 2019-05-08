@@ -105,8 +105,20 @@ namespace UI
             SetButtonCallback(GameOption, GameOptionEvent);
         }
 
+        private void Start()
+        {
+            MyEventSystem.Instance.Subscribe(UpdateItemIconArgs.Id, UpdateItemsIconEvent);
+        }
+        private void OnDestroy()
+        {
+            MyEventSystem.Instance.UnSubscribe(UpdateItemIconArgs.Id, UpdateItemsIconEvent);
+        }
 
-
+        //在使用物品后更新5物品栏，这是回调函数
+        private void UpdateItemsIconEvent(object sender, GameEventArgs e)
+        {
+            UpdateItemButton();
+        }
 
         private void GameOptionEvent()
         {
@@ -123,7 +135,7 @@ namespace UI
             Application.Quit();
         }
 
-        //选这物品按钮回调
+        //选择物品按钮回调
         void SelectItemEvent()
         {
         }
@@ -243,6 +255,7 @@ namespace UI
 
         void EquipEvent()
         {
+            UpdateItemButton();
             UIService.Instance.ChangeNotifyWithinCanvas(GetCurrentCanvas(), EquipCanvas.gameObject);
             CurrentCanvas = ButtonCanvasEnum.Equip;
         }
@@ -256,7 +269,7 @@ namespace UI
 
         }
 
-
+        //获取当前的的Canvas，在改变canvas的时候把当前关闭，打开需要打开的
         public GameObject GetCurrentCanvas()
         {
             switch (CurrentCanvas)
@@ -291,6 +304,8 @@ namespace UI
                 Items.Add(button.gameObject);
             }
         }
+
+        //摧毁物品选择界面的物品，在每次退出后要摧毁
         private void DestroyItemButton()
         {
             for (int i = 0; i < Items.Count; i++)
@@ -305,7 +320,7 @@ namespace UI
         }
 
 
-        //事件通知UI更新
+        //事件通知UI更新，更新5个物品的UI
         private void UpdateItemButton()
         {
             string Name;
@@ -321,14 +336,18 @@ namespace UI
                     ItemMenu[i].GetComponent<Image>().sprite = ResourceService.Instance.LoadAsset<Sprite>(GameConfigService.Instance.UIIcon + Name);
                     continue;
                 }
-                Name = m_CurrentItems[i].IconName;
-                //SelectItem.GetComponent<Image>().sprite = item.GetItemIcon(Name);
-                ItemMenu[i].GetComponent<Image>().sprite = m_CurrentItems[i].GetItemIcon(Name);
+                else
+                {
+                    Name = m_CurrentItems[i].IconName;
+
+                    //SelectItem.GetComponent<Image>().sprite = item.GetItemIcon(Name);
+                    ItemMenu[i].GetComponent<Image>().sprite = m_CurrentItems[i].GetItemIcon(Name);
+                }
             }
         }
 
 
-
+        //创建物品按钮
         private Button CreatButton(Transform Parent)
         {
             Button button;

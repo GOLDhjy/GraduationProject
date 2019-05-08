@@ -45,6 +45,9 @@ namespace MyService
 
         public override void OnState()
         {
+
+
+
             AIPlayer.DoState();
         }
     }

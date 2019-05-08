@@ -17,7 +17,10 @@ namespace MyService
                 StartCoroutine(item.UseItemIEnumerator());
             }
         }
-
+        /// <summary>
+        /// 在这里加入要使用的物品
+        /// </summary>
+        /// <param name="item"></param>
         public void ProductItem(Item item)
         {
             if (item == null)

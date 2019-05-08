@@ -79,24 +79,24 @@ public class LocalPlayerController :  Singleton<LocalPlayerController>
     //    }
     //    Player.backPack.Value.DeleteItemFromBackPack(item);
     //}
-    public void DropItemFromPack(int num)
-    {
-        if (!Player.hasBackPack)
-        {
-            Player.AddBackPack(new BackPack());
-        }
-        Player.backPack.Value.DeleteItemFromBackPack(num);
+    //public void DropItemFromPack(int num)
+    //{
+    //    if (!Player.hasBackPack)
+    //    {
+    //        Player.AddBackPack(new BackPack());
+    //    }
+    //    Player.backPack.Value.DeleteItemFromBackPack(num);
 
-    }
-    public void UseItemFromPack(int num)
-    {
-        if (!Player.hasBackPack)
-        {
-            Player.AddBackPack(new BackPack());
-        }
-        Player.backPack.Value.UseItemAtBackPack(num);
-        Debug.Log("使用物品");
-    }
+    //}
+    //public void UseItemFromPack(int num)
+    //{
+    //    if (!Player.hasBackPack)
+    //    {
+    //        Player.AddBackPack(new BackPack());
+    //    }
+    //    Player.backPack.Value.UseItemAtBackPack(num);
+    //    Debug.Log("使用物品");
+    //}
     //加移速
 
 }

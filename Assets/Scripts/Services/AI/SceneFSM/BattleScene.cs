@@ -8,6 +8,7 @@ namespace MyService
 {
     public class BattleScene : IStateScene
     {
+        static bool IsFirstIni = true;
         public BattleScene()
         {
             Type = SceneEnum.Battle;
@@ -15,7 +16,12 @@ namespace MyService
 
         public override void EnState()
         {
-            UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "HUDCanvas");
+            //保证HUD在UI的最底部
+            if (IsFirstIni)
+            {
+                UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "HUDCanvas");
+                IsFirstIni = false;
+            } 
         }
 
         public override void ExitState()

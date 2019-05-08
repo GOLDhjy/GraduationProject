@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1127704968700357747}
   - component: {fileID: 1127704968700357746}
   - component: {fileID: 2312405341770302192}
+  - component: {fileID: 1060600332234284947}
   m_Layer: 10
   m_Name: HandSword
   m_TagString: Sword
@@ -100,8 +101,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127704968700357748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00c5ed0e031b6414c9b739c169c17471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1060600332234284947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127704968700357748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00672d7e1146bdb4dadb4d33ae23520f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -29,7 +29,7 @@ public class AttackAnim : StateMachineBehaviour
         {
             BorderTime = Time.time;
         }
-        if(stateInfo.normalizedTime>0.5f && stateInfo.normalizedTime <= 0.7f)
+        if(stateInfo.normalizedTime>0.4f && stateInfo.normalizedTime <= 0.70f)
         {
             if (PressTime >= BorderTime && !stateInfo.IsName("2Handed_Attack_6"))
             {
@@ -78,6 +78,14 @@ public class AttackAnim : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+    public override void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
+    {
+        animator.gameObject.GetComponent<PlayerSwordCollider>().enabled = true;
+    }
+    public override void OnStateMachineExit(Animator animator, int stateMachinePathHash)
+    {
+        animator.gameObject.GetComponent<PlayerSwordCollider>().enabled = false;
+    }
     public void OnEventAttack(object sender,GameEventArgs  gameEventArgs)
     {
         AttackArgs args = gameEventArgs as AttackArgs;

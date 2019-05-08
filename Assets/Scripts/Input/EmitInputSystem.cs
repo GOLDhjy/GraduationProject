@@ -151,10 +151,25 @@ public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem
                 MyEventSystem.Instance.Invoke(CrouchArgs.Id, this, new CrouchArgs() { Crouch = true, InputEntity = UniqueInputEntity });
             }
         }
+        //暂停，打开UI
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             MyEventSystem.Instance.Invoke(ChangeGameStateArgs.Id, this, new ChangeGameStateArgs() { SceneEnum = SceneEnum.Pause });
             
+        }
+        //左右切换Item道具
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MyEventSystem.Instance.Invoke(ChangeCurrentItemArgs.Id, this, new ChangeCurrentItemArgs() { Der = -1 });
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MyEventSystem.Instance.Invoke(ChangeCurrentItemArgs.Id, this, new ChangeCurrentItemArgs() { Der = 1 });
+        }
+        //使用当前物品
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            MyEventSystem.Instance.Invoke(UseCurrentItemArgs.Id, this, new UseCurrentItemArgs() { });
         }
     }
 

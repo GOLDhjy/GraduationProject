@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
-
+using MyService;
+using UnityEngine.UI;
+using UI;
 namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator
 {
     [TaskCategory("Unity/Animator")]
@@ -20,6 +22,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator
         private Animator animator;
         private GameObject prevGameObject;
 
+        
+
         public override void OnStart()
         {
             var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
@@ -27,7 +31,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator
                 animator = currentGameObject.GetComponent<Animator>();
                 prevGameObject = currentGameObject;
             }
+
+            //if (Flag == null)
+            //{
+                //ResourceService.Instance.InstantiateAsset<Canvas>(GameConfigService.Instance.UIPrefabPath + "EnemyCanvas");
+                
+            //}
+            //else
+            //{
+            //    Flag.SetActive(true) ;
+            //}
+            
+            //FlagTransform = Flag.transform.Find("Flag").transform;
+
         }
+        
 
         public override TaskStatus OnUpdate()
         {
@@ -43,6 +61,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator
             if (setOnce) {
                 StartCoroutine(ResetValue(prevValue));
             }
+           
+
             return TaskStatus.Success;
         }
 

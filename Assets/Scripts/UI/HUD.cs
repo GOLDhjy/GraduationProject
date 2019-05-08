@@ -17,8 +17,11 @@ namespace UI
         public Image Main;
         [Header("技能图像")]
         public Image Left;
+        //UI当前物品
         Item CurrentItem =null;
+        //装备的当前物品
         Item Item = null;
+        //当前5个物品
         Item[] Items = null;
 
 
@@ -30,20 +33,64 @@ namespace UI
             {
                 InitializeAndUpdateItem();
             }
-            MyEventSystem.Instance.Subscribe(UpdateItemIconArgs.Id, UpdateIcon);
-
-
+            MyEventSystem.Instance.Subscribe(UpdateItemIconArgs.Id, UpdateIconEvent);
+            MyEventSystem.Instance.Subscribe(UpdateHpBarArgs.Id, UpdateHpBarEvent);
+            MyEventSystem.Instance.Subscribe(ChangeCurrentItemArgs.Id, ChangeCurrentItemEvent);
+            MyEventSystem.Instance.Subscribe(UseCurrentItemArgs.Id, UseCurrentItemEvent);
+        }
+        private void OnDisable()
+        {
+            MyEventSystem.Instance.UnSubscribe(UpdateItemIconArgs.Id, UpdateIconEvent);
+            MyEventSystem.Instance.UnSubscribe(UpdateHpBarArgs.Id, UpdateHpBarEvent);
+            MyEventSystem.Instance.UnSubscribe(ChangeCurrentItemArgs.Id, ChangeCurrentItemEvent);
+            MyEventSystem.Instance.UnSubscribe(UseCurrentItemArgs.Id, UseCurrentItemEvent);
+        }
+        private void UseCurrentItemEvent(object sender, GameEventArgs e)
+        {
+            UseCurrentItem();
         }
 
-        private void UpdateIcon(object sender, GameEventArgs e)
+        private void ChangeCurrentItemEvent(object sender, GameEventArgs e)
+        {
+            ChangeCurrentItemArgs args = e as ChangeCurrentItemArgs;
+            ChangeCurrentItem(args.Der);
+        }
+
+        private void UpdateHpBarEvent(object sender, GameEventArgs e)
+        {
+            UpdateHpBar();
+        }
+        private void UpdateIconEvent(object sender, GameEventArgs e)
         {
             InitializeAndUpdateItem();
             UpdateCurrentItem();
         }
 
-        private void OnDisable()
+       
+        //更新玩家血条UI
+        private void UpdateHpBar()
         {
-            MyEventSystem.Instance.UnSubscribe(UpdateItemIconArgs.Id, UpdateIcon);
+            if (PlayerController.Instance.GetPlayerHp()<=0)
+            {
+                MyEventSystem.Instance.Invoke(DieArgs.Id, this, new DieArgs() { });
+            }
+            HpBar.value = Mathf.Clamp01(PlayerController.Instance.GetPlayerHp() / PlayerController.Instance.GetPlayerMaxHp());
+        }
+        /// <summary>
+        /// 使用当前物品
+        /// </summary>
+        void UseCurrentItem()
+        {
+            if (Item  == null)
+            {
+                Debug.LogError("Current Item Is Null，If this oparate is legal,plaese ignore");
+                //使用物品为空时
+                //应该播放音效
+
+                return;
+            }
+            //ItemManagerService.Instance.ProductItem(Item);
+            PlayerController.Instance.UseItemFromPack(Item);
         }
 
         /// <summary>
@@ -53,6 +100,11 @@ namespace UI
         void ChangeCurrentItem(int Der)
         {
             int index = FindIndexAtItems(Item, Items);
+            if (index == -1)
+            {
+                Debug.LogError("Cant find index");
+                return;
+            }
             switch (Der)
             {
                 case -1:
@@ -60,7 +112,7 @@ namespace UI
                     int tmpindex = index;
                     for (int i = 0; i < Items.Count(); i++)
                     {
-                        tmpindex = (tmpindex - 1) % Items.Count();
+                        tmpindex = ((tmpindex - 1)+ Items.Count()) % Items.Count();
                         if (Items[tmpindex] != null)
                         {
                             if (tmpindex != index)
@@ -81,7 +133,7 @@ namespace UI
                     int tmpindex2 = index;
                     for (int i = 0; i < Items.Count(); i++)
                     {
-                        tmpindex2 = (tmpindex2 - 1) % Items.Count();
+                        tmpindex2 = (tmpindex2 + 1) % Items.Count();
                         if (Items[tmpindex2] != null)
                         {
                             if (tmpindex2 != index)
@@ -100,7 +152,6 @@ namespace UI
                 default:
                     break;
             }
-
         }
 
 
@@ -115,6 +166,10 @@ namespace UI
             {
                 for (int i = 0; i < items.Count(); i++)
                 {
+                    if (items[i] == null)
+                    {
+                        continue;
+                    }
                     if (TargetItem.GetType() == items[i].GetType())
                     {
                         return i;
@@ -176,7 +231,7 @@ namespace UI
                 }
             }
         }
-        //更新UI图标
+        //更新当前物品UI图标
         void UpdateCurrentItem()
         {
             if (Item ==null)

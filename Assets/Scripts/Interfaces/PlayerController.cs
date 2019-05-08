@@ -23,6 +23,17 @@ namespace MyService
             }
             set => player = value;
         }
+        //获取角色主武器
+        public GameObject GetPlayerMainSword()
+        {
+            return Player.sword.Sword;
+        }
+        //得到角色的物品
+        public GameObject GetPlayerGameObject()
+        {
+            return Player.gameObject.gameobject;
+        }
+
         //得到整个背包
         public Dictionary<int, Dictionary<Item, int>> GetBackPackDate()
         {
@@ -45,7 +56,12 @@ namespace MyService
         }
         public float GetPlayerHp()
         {
+
             return Player.hp.Value;
+        }
+        public float GetPlayerMaxHp()
+        {
+            return Player.maxHp.Value;
         }
         //public void ChangePlayerHp(float num)
         //{
@@ -81,7 +97,10 @@ namespace MyService
             {
                 Player.hp.Value += num;
             }
-            Debug.Log("给本地玩家加血" + num);
+            Debug.Log("改变本地血量" + num);
+
+            //血量改变后通知UI更新
+            MyEventSystem.Instance.Invoke(UpdateHpBarArgs.Id, this, new UIEventArgs() { });
         }
         //加攻击
         public void ChangeATKToPlayer(float num)
@@ -108,23 +127,52 @@ namespace MyService
         //    }
         //    Player.backPack.Value.DeleteItemFromBackPack(item);
         //}
-        public void DropItemFromPack(int num)
+        //丢掉物品
+        public void DropItemFromPack(Item item)
         {
             if (!Player.hasBackPack)
             {
                 Player.AddBackPack(new BackPack());
             }
-            Player.backPack.Value.DeleteItemFromBackPack(num);
+            Player.backPack.Value.DeleteItemFromBackPack(item);
+            UpdateCurrentPackDate();
 
         }
-        public void UseItemFromPack(int num)
+
+        //获取背包里面的当前物品
+        public void UseItemFromPack(Item item)
         {
             if (!Player.hasBackPack)
             {
                 Player.AddBackPack(new BackPack());
             }
-            Player.backPack.Value.UseItemAtBackPack(num);
+            Player.backPack.Value.UseItemAtBackPack(item);
+            DropItemFromPack(item);
+            //通知物品UI更新
+            MyEventSystem.Instance.Invoke(UpdateItemIconArgs.Id, this, new UpdateItemIconArgs() { });
+
             Debug.Log("使用物品");
+        }
+
+        /// <summary>
+        /// 在使用/丢弃物品后，应该更新5物品栏里面的物品，是否用完
+        /// </summary>
+        private void UpdateCurrentPackDate()
+        {
+            Dictionary<int, Dictionary<Item, int>> m_backpack = GetBackPackDate();
+            Item[] items = GetCurrentPackDate();
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (items[i] != null)
+                {
+                    Dictionary<Item, int> tmp;
+                    //m_backpack.TryGetValue(items[i].Id,out tmp);
+                    if (!m_backpack.TryGetValue(items[i].Id, out tmp))
+                    {
+                        items[i] = null;
+                    }
+                }
+            }
         }
         //加移速
 

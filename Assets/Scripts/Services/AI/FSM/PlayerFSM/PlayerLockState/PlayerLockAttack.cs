@@ -27,6 +27,8 @@ namespace MyService
 
         public override void OnState()
         {
+
+
             var TmpTarget = AIPlayerController.PlayerEntity.transform.Value.rotation;
             var forword = AIPlayerController.PlayerEntity.lockEnemy.Value.position - AIPlayerController.PlayerEntity.transform.Value.position;
 

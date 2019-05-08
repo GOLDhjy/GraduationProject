@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Enemy
   - lefttoe
+  - BossOfEnemy
   layers:
   - Default
   - TransparentFX

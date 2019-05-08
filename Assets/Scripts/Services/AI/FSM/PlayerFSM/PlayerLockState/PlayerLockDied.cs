@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Threading;
+using UnityEngine;
 namespace MyService
 {
     public class PlayerLockDied : LockAIState
@@ -15,17 +16,32 @@ namespace MyService
 
         public override void EnterState()
         {
-            base.EnterState();
+            AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Death;
+            AIPlayerController.PlayerEntity.animator.Value.SetBool("Died", true);
+            UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "FailingCanvas");
+            MyWaitForSeconds(5);
+            Application.Quit();
         }
 
         public override void ExitState()
         {
-            base.ExitState();
+
         }
 
         public override void OnState()
         {
-            base.OnState();
+
+        }
+        private void MyWaitForSeconds(int v)
+        {
+            float Firsttime = Time.realtimeSinceStartup;
+            while (true)
+            {
+                if (Time.realtimeSinceStartup - Firsttime > v)
+                {
+                    break;
+                }
+            }
         }
     }
 }

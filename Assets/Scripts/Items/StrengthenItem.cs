@@ -13,7 +13,7 @@ namespace MyService
     //强化武器，增加攻击力
     public class StrengthenItem : Item
     {
-        public float Value;
+        public float Value = 10;
         public float UseTime = 30f;
 
         public StrengthenItem()
@@ -26,8 +26,11 @@ namespace MyService
         public override IEnumerator UseItemIEnumerator()
         {
             PlayerController.Instance.ChangeATKToPlayer(Value);
+            ParticlesService.Instance.PlayPrefabParticle(PlayerController.Instance.GetPlayerMainSword(), "Effect5");
             yield return new WaitForSeconds(UseTime);
+            ParticlesService.Instance.StopPrefabParticle(PlayerController.Instance.GetPlayerMainSword(), "Effect5");
             PlayerController.Instance.ChangeATKToPlayer(-Value);
+            yield return null;
         }
         public override void UseItem()
         {

@@ -135,6 +135,7 @@ namespace MyService
                 ChangeState(ViewModeEnum.Lock);
             }
         }
+        //检查能不能转换状态，需要把不能转换的调节加入里面
         public bool CheckCanTransition()
         {
             if (AIScene.Instance.CurrentState.Type == SceneEnum.Pause)

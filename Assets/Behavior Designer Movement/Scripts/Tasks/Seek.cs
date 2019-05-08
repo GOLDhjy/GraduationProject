@@ -1,4 +1,7 @@
 using UnityEngine;
+using MyService;
+using UnityEngine.UI;
+using UI;
 
 namespace BehaviorDesigner.Runtime.Tasks.Movement
 {
@@ -12,18 +15,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         public SharedGameObject target;
         [Tooltip("If target is null then use the target position")]
         public SharedVector3 targetPosition;
+        
 
         public override void OnStart()
         {
             base.OnStart();
 
             SetDestination(Target());
+
         }
 
         // Seek the destination. Return success once the agent has reached the destination.
         // Return running if the agent hasn't reached the destination yet
         public override TaskStatus OnUpdate()
         {
+
             if (HasArrived()) {
                 return TaskStatus.Success;
             }
@@ -31,6 +37,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
             SetDestination(Target());
 
             return TaskStatus.Running;
+
+
         }
         
         // Return targetPosition if target is null
