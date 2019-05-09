@@ -116,6 +116,13 @@ namespace MyService
     {
         public static readonly int Id = typeof(UpdateHpBarArgs).GetHashCode();
     }
+    //UI->通知显示鼠标Focus的物品信息
+    public class DescribeObjectArgs : UIEventArgs
+    {
+        public static readonly int Id = typeof(DescribeObjectArgs).GetHashCode();
+        public GameObject GameObject;
+    }
+
     //使用当前物品
     public class UseCurrentItemArgs : UIEventArgs
     {

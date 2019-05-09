@@ -871,6 +871,7 @@
     <Compile Include="Assets\Scripts\MonoBehavior\Player\PlayerSwordCollider.cs" />
     <Compile Include="Assets\Scripts\MonoBehavior\PlayerToe.cs" />
     <Compile Include="Assets\Scripts\MonoBehavior\Sword.cs" />
+    <Compile Include="Assets\Scripts\MonoBehavior\UI\ShowDescribe.cs" />
     <Compile Include="Assets\Scripts\Player\AddPlayerSystem.cs" />
     <Compile Include="Assets\Scripts\Player\LocalPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAudioSystem.cs" />

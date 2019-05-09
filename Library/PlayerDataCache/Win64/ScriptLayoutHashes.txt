@@ -10,7 +10,7 @@ SceneListEnd?
 6ccc13c33557e4c42a77c278819f2be0 Assembly-CSharp.dll:DuloGames.UI.UISceneOpen
 78317677ba7c10dd7f6efe78d74081f2 Assembly-CSharp.dll:DuloGames.UI.UIToggle_OnOff
 4cb2728a73341507476aa240d0f93dd0 Assembly-CSharp.dll:DuloGames.UI.UISpellSlot
-3ef23bb59ad262985e648b620028fc6c Assembly-CSharp.dll:UI.SelectionView
+8ba113570a9651a2727e1618aeac7f9b Assembly-CSharp.dll:UI.SelectionView
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:DuloGames.UI.UIBlackOverlay
 3e0db73de544a86dc3144c8f363562d4 Assembly-CSharp.dll:DuloGames.UI.UILoadingOverlayManager
@@ -309,3 +309,4 @@ a17ab7a2e081c8fdcc4348745ce8cf45 Assembly-CSharp.dll:DuloGames.UI.UISelectField_
 6a9ace8f87cf53c943d773d6c5620dfc Assembly-CSharp.dll:DuloGames.UI.UIEquipReceiver
 48864a32eb7f432be77cb08c8897dd81 Assembly-CSharp.dll:DuloGames.UI.UIMaskRaycastFilter
 75abb8a5d5ca67126c0b0d61c03b0f33 Assembly-CSharp.dll:DuloGames.UI.Demo_CastManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowDescribe

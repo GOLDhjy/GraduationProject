@@ -17,6 +17,7 @@ namespace MyService
             Name = "血瓶";
             Id = 1;
             IconName = "Icon_Leafs_128";
+            Describe = Name + ":在1.5s后增加自身" + Value + "点血量";
         }
 
         public override IEnumerator UseItemIEnumerator()
@@ -37,7 +38,6 @@ namespace MyService
         public override string Name { get => this.m_name; set => this.m_name = value; }
         public override int Id { get => this.id; set => this.id = value; }
         public override string IconName { get => this.iconName; set => this.iconName = value; }
-
-
+        public override string Describe { get => base.Describe; set => base.Describe = value; }
     }
 }

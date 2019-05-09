@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using UnityEngine.EventSystems;
 namespace UI
 {
     public class IUserInterface : MonoBehaviour
@@ -51,11 +51,27 @@ namespace UI
         {
             gameObject.SetActive(flag);
         }
-
+        /// <summary>
+        /// 设置鼠标点击回调函数
+        /// </summary>
         public void SetButtonCallback(Button button, UnityAction call)
         {
             button.onClick.AddListener(call);
             //UIEventListener.Get(GetName(name)).onClick = callback;
+        }
+        /// <summary>
+        /// 设置鼠标滑入滑出回调函数
+        /// </summary>
+        /// <param name=""></param>
+        public void SetButtonMouseXXXCallback(Button button, UnityAction<BaseEventData> call)
+        {
+            EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>() ?? button.gameObject.AddComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+            entry.callback = new EventTrigger.TriggerEvent();
+            entry.callback.AddListener(call);
+
+            trigger.triggers.Add(entry);
         }
 
         //public void SetCallback(string name, UIEventListener.EmptyDelegate callback)

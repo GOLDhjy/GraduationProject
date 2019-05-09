@@ -7,6 +7,8 @@ using UnityEngine;
 using MyService;
 using UnityEngine.UI;
 using Entitas;
+using UnityEngine.EventSystems;
+
 namespace UI
 {
     public enum ButtonCanvasEnum
@@ -21,10 +23,17 @@ namespace UI
         private GameObject SelectSkill = null;
         private GameObject SelectSkill2 = null;
 
+
+        //暂存打开背包的创建的物品，在关闭时要摧毁。
+        private List<GameObject> Items = new List<GameObject>();
+
+
         ButtonCanvasEnum CurrentCanvas = ButtonCanvasEnum.Equip;
 
         [Header("Root")]
         public GameObject Root;
+        [Header("UI相机")]
+        public GameObject Uicamera; 
         //根画布下
         [Header("Root Canvas")]
         public Button QuitButton;
@@ -107,13 +116,44 @@ namespace UI
 
         private void Start()
         {
+            //找到UI相机
+            //Uicamera =  GameObject.Find("UICamera");
+            //if (Uicamera == null)
+            //{
+            //    Debug.LogError("找不到UI相机");
+            //}
+            //else
+            //{
+            //    Root.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+            //    Root.GetComponent<Canvas>().
+            //}
+            MyEventSystem.Instance.Subscribe(DescribeObjectArgs.Id, ShowItemDescribe);
             MyEventSystem.Instance.Subscribe(UpdateItemIconArgs.Id, UpdateItemsIconEvent);
         }
+
+
+
         private void OnDestroy()
         {
+            MyEventSystem.Instance.UnSubscribe(DescribeObjectArgs.Id, ShowItemDescribe);
             MyEventSystem.Instance.UnSubscribe(UpdateItemIconArgs.Id, UpdateItemsIconEvent);
         }
 
+        //显示物品描述
+        private void ShowItemDescribe(object sender, GameEventArgs e)
+        {
+            Dictionary<int, Dictionary<Item, int>> m_backpack = PlayerController.Instance.GetBackPackDate();
+            DescribeObjectArgs args = e as DescribeObjectArgs;
+            int index2 = FindItemAtPack(args.GameObject, Items);
+            if (index2 == -1)
+            {
+                Debug.LogError("在背包里没有找到");
+                return;
+            }
+            Item item = m_backpack.ElementAt(index2).Value.First().Key;
+            SelectItemDescribe.text = item.Describe;
+            Describe.text = item.Describe;
+        }
         //在使用物品后更新5物品栏，这是回调函数
         private void UpdateItemsIconEvent(object sender, GameEventArgs e)
         {
@@ -184,6 +224,8 @@ namespace UI
             }
             UIService.Instance.CloseNotifyWithinCanvas(SelectItemCanvas.gameObject);
             Item item = m_backpack.ElementAt(index2).Value.First().Key;
+            Describe.text = item.Describe;
+
             int tmp = IsContainType(item, m_CurrentItems);
             if (tmp != -1)
             {
@@ -201,6 +243,7 @@ namespace UI
             {
                 m_CurrentItems[index1] = item;
             }
+
             UpdateItemButton();
             DestroyItemButton();
 
@@ -286,9 +329,8 @@ namespace UI
                     return null;
             }
         }
-        //暂存打开背包的物品，在关闭时要摧毁。
-        private List<GameObject> Items = new List<GameObject>();
-        //创建物品
+
+        //在物品选择界面创建物品
         private void CreateItemButton()
         {
             int m_count = PlayerController.Instance.GetCountFromBack();
@@ -299,10 +341,69 @@ namespace UI
                 Button button;
                 button = CreatButton(SelectItemContent.transform);
                 button.GetComponentInChildren<Text>().text = item.Value.Keys.First().Name + "     x" + item.Value.Values.First().ToString();
+
+                SetButtonMouseXXXCallback(button, ShowItemDescribe);
                 SetButtonCallback(button, SelectedItem);
 
                 Items.Add(button.gameObject);
             }
+        }
+
+
+
+        //鼠标滑入事件
+        private void ShowItemDescribe(BaseEventData arg0)
+        {
+            Dictionary<int, Dictionary<Item, int>> m_backpack = PlayerController.Instance.GetBackPackDate();
+            //利用射线
+            //GameObject gameobj=null ;
+            //Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit, LayerMask.GetMask("UI")));
+            //{
+            //    Debug.DrawLine(ray.origin, hit.point);
+            //    gameobj = hit.collider.gameObject;
+            //}
+            //if (gameobj !=null)
+            //{
+
+
+            //利用UI摄像获取Button
+            //PointerEventData data = new PointerEventData(EventSystem.current);
+            //data.position = Input.mousePosition;
+            //data.pressPosition = Input.mousePosition;
+            //List< RaycastResult> results = new List<RaycastResult>();
+            //Root.GetComponent<GraphicRaycaster>().Raycast(data, results);
+
+            //if (results.Count > 0)
+            //{
+            //    for (int i = 0; i < results.Count; i++)
+            //    {
+            //        Debug.Log(results[i].gameObject.name);
+            //    }
+            //}
+            //else
+            //{
+            //    Debug.Log("没有UI");
+            //}
+
+
+            //设置Describe
+            //int index2 = FindItemAtPack(EventSystem.current.gameObject, Items);
+            //if (index2 == -1)
+            //{
+            //    Debug.LogError("在背包里没有找到");
+            //    return;
+            //}
+            //Item item = m_backpack.ElementAt(index2).Value.First().Key;
+            //    SelectItemDescribe.text = item.Describe;
+            //}
+            
+        }
+
+        void OnPointEnter(BaseEventData eventData)
+        {
+
         }
 
         //摧毁物品选择界面的物品，在每次退出后要摧毁
@@ -360,7 +461,14 @@ namespace UI
             Vector3 vector3 = button.gameObject.GetComponent<RectTransform>().localPosition;
             vector3.z = 0;
             button.gameObject.GetComponent<RectTransform>().localPosition = vector3;
+
+            if (button.gameObject.GetComponent<Collider2D>() == null)
+            {
+                button.gameObject.AddComponent<Collider2D>();
+            }
             return button;
         }
+        //给按钮添加鼠标滑入事件
+
     }
 }
