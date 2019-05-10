@@ -21,6 +21,14 @@ namespace MyService
             AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Death;
             AIPlayerController.PlayerEntity.animator.Value.SetBool("Died", true);
             UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "FailingCanvas");
+            Thread thread = new Thread(StopGame);
+            thread.Start();
+
+
+        }
+
+        private void StopGame()
+        {
             MyWaitForSeconds(3);
             Application.Quit();
         }

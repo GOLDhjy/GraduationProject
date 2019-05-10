@@ -31,6 +31,7 @@ f9830545ac7dd88f4176f6864fdafdbb Assembly-CSharp.dll:DuloGames.UI.UIBlackOverlay
 217d4c2e235116d6890f0968bf463683 Assembly-CSharp.dll:DuloGames.UI.Gradient
 6cb6e462406c4dafd2b330449273ab65 Assembly-CSharp.dll:DuloGames.UI.UITooltipManager
 4664fa17523f7c53eafb9f318e2f09bf Assembly-CSharp.dll:DuloGames.UI.Test_UISlotBase_Assign
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.HitAnimEnd
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 8cf8bca31e739bfaf1bd1918c073397e Assembly-CSharp.dll:UI.HUD
 872f290a7c85b2a91c190baae36e5a06 Assembly-CSharp.dll:DuloGames.UI.UIProgressBar
@@ -176,6 +177,7 @@ b5ad3eafc85b336aa910dba2e7687591 Assembly-CSharp.dll:DuloGames.UI.UIGlobeFillInv
 10a0f2537a0267e39353226ca30a6c63 Assembly-CSharp.dll:UI.StartView
 f79e7a791cfbc3be4c8d721981787d05 Assembly-CSharp.dll:DuloGames.UI.UIStepBar
 227fcfbfe007c6f48db10b66e4bea055 Assembly-CSharp.dll:DuloGames.UI.UIPagination
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowDescribe
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DodgeAnim
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 b2890e2f4f5583a6ae48253624c6bfcb Assembly-CSharp.dll:DuloGames.UI.Test_UIItemSlot_AssignAll
@@ -303,10 +305,9 @@ b672b60e2785f7b45deb9fe5c7578e2c Assembly-CSharp.dll:DuloGames.UI.UIEquipSlot
 fb320463987b6b439764e34654a79b86 BehaviorDesigner.Runtime.dll:BehaviorDesigner.Runtime.BehaviorManager
 d117a61dd72935bef68334cd6e9d2b8e BehaviorDesigner.Runtime.dll:BehaviorDesigner.Runtime.GlobalVariables
 ca75d0d95331b465b220ad8d993b1276 BehaviorDesigner.Runtime.dll:BehaviorDesigner.Runtime.VariableSynchronizer
-4683290bc514d015cb4572ba8dcf4678 Assembly-CSharp.dll:UI.OptionView
+6837caf4bda4dc187731a7054c89190e Assembly-CSharp.dll:UI.OptionView
 7ac1de62aed93b62dbd27363fce0231d Assembly-CSharp.dll:DuloGames.UI.UISliderDisplayValue
 a17ab7a2e081c8fdcc4348745ce8cf45 Assembly-CSharp.dll:DuloGames.UI.UISelectField_OptionOverlay
 6a9ace8f87cf53c943d773d6c5620dfc Assembly-CSharp.dll:DuloGames.UI.UIEquipReceiver
 48864a32eb7f432be77cb08c8897dd81 Assembly-CSharp.dll:DuloGames.UI.UIMaskRaycastFilter
 75abb8a5d5ca67126c0b0d61c03b0f33 Assembly-CSharp.dll:DuloGames.UI.Demo_CastManager
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowDescribe

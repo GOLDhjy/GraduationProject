@@ -34,6 +34,7 @@ namespace MyService
             AudioSource.clip = AudioClip;
             if(audioEnum == AudioEnum.BGM)
             {
+                AudioSource.volume = GameConfigService.Instance.MusicVolume;
                 AudioSource.loop = true;
                 AudioSource.Play();
             }
@@ -42,6 +43,12 @@ namespace MyService
                 AudioSource.Play();
             }
         }
+        /// <summary>
+        /// 以物品播放声音
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="audioEnum"></param>
+        /// <param name="str"></param>
         public void Play(GameObject gameObject, AudioEnum audioEnum, string str)
         {
             AudioSource = gameObject.GetComponent<AudioSource>();
@@ -56,8 +63,10 @@ namespace MyService
                 Debug.LogError("要播放声音为空");
                 return;
             }
+            AudioSource.clip = AudioClip;
             if (audioEnum == AudioEnum.BGM)
             {
+                AudioSource.volume = GameConfigService.Instance.MusicVolume;
                 AudioSource.loop = true;
                 AudioSource.Play();
             }

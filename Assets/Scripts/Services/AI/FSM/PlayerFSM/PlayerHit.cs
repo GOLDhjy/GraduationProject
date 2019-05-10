@@ -15,7 +15,8 @@ namespace MyService
 
         public override void EnterState()
         {
-
+            AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Hit;
+            AIPlayerController.PlayerEntity.animator.Value.SetBool("Hit", true);
         }
 
         public override void ExitState()

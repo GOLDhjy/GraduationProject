@@ -39,7 +39,7 @@ namespace UI
             while(async.progress <= 0.85)
             {
                 toProgress = async.progress * 100;
-                Debug.Log(async.progress);
+                //Debug.Log(async.progress);
                 while (displayProgress <= async.progress * 100)
                 {
                     ++displayProgress;

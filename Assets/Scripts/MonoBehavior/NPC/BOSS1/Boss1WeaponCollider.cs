@@ -16,6 +16,7 @@ public class Boss1WeaponCollider : MonoBehaviour
                 Debug.LogError("Boss Has not BossController");
                 return;
             }
+            MyEventSystem.Instance.Invoke(HitArgs.Id, this, new HitArgs() { Hit = true});
             PlayerController.Instance.ChangeHpToPlayer(-Self.GetComponent<BossController>().GetBossATK());
         }
     }

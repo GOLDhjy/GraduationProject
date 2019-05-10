@@ -26,6 +26,7 @@ namespace MyService
             AddState(new PlayerRandomIdle());
             AddState(new PlayerInvalid());
             AddState(new PlayerCrouch());
+            AddState(new PlayerHit());
             AddState(new PlayerDied());
         }
         //在改变状态时一定要执行取消事件
@@ -37,6 +38,7 @@ namespace MyService
             MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.UnSubscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.UnSubscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.UnSubscribe(HitArgs.Id, OnHitEvent);
             MyEventSystem.Instance.UnSubscribe(DieArgs.Id, OnEventDie);
             ChangeState(AIStateEnum.INVALID);
         }
@@ -50,8 +52,13 @@ namespace MyService
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.Subscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.Subscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.Subscribe(HitArgs.Id, OnHitEvent);
             MyEventSystem.Instance.Subscribe(DieArgs.Id, OnEventDie);
+            
         }
+
+        
+
         public void AddState(AIState state)
         {
             if (StateDic.ContainsKey(state.type))
@@ -203,6 +210,28 @@ namespace MyService
                 ChangeState(AIStateEnum.Movement);
             }
         }
+        private void OnHitEvent(object sender, GameEventArgs e)
+        {
+            if (!CheckCanTransition())
+            {
+                return;
+            }
+            if (e == null)
+            {
+                Debug.LogError("NULL Reference");
+                return;
+            }
+            HitArgs args = e as HitArgs;
+            if (args.Hit)
+            {
+                ChangeState(AIStateEnum.Hit);
+            }
+            else
+            {
+                ChangeState(AIStateEnum.Movement);
+            }
+        }
+
         private void OnEventDie(object sender, GameEventArgs e)
         {
             if (!CheckCanTransition())

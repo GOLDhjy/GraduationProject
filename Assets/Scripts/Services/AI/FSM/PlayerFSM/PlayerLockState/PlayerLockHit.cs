@@ -15,17 +15,18 @@ namespace MyService
 
         public override void EnterState()
         {
-            base.EnterState();
+            AIPlayerController.PlayerEntity.animState.Value = AnimStateEnum.Hit;
+            AIPlayerController.PlayerEntity.animator.Value.SetTrigger("Hit");
         }
 
         public override void ExitState()
         {
-            base.ExitState();
+
         }
 
         public override void OnState()
         {
-            base.OnState();
+
         }
     }
 }

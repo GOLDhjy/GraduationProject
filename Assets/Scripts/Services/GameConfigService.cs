@@ -24,6 +24,13 @@ namespace MyService
         public float PlayerRotateSpeed = 8f;
         public float CameraMoveSpeed = 2f;
 
+
+        //游戏设置信息
+        //游戏音乐大小
+        public float MusicVolume = 1;
+        //游戏音效大小
+        public float AudioVolume = 1;
+
        
     }
 

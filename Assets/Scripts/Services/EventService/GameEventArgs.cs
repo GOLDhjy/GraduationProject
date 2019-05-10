@@ -55,6 +55,13 @@ namespace MyService
         public InputEntity InputEntity;
         public bool Crouch = false;
     }
+    //受到打击
+    public class HitArgs : GameEventArgs
+    {
+        public static readonly int Id = typeof(HitArgs).GetHashCode();
+        public bool Hit; 
+    }
+    //死亡
     public class DieArgs : GameEventArgs
     {
         public static readonly int Id = typeof(DieArgs).GetHashCode();

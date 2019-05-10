@@ -46,7 +46,7 @@ public class GameStateSystem : IInitializeSystem, IExecuteSystem
         {
             
         }
-        Debug.Log(AIScene.Instance.CurrentState.Type);
+        //Debug.Log(AIScene.Instance.CurrentState.Type);
     }
     
     public void OnChangeGameState(object sender,GameEventArgs args)

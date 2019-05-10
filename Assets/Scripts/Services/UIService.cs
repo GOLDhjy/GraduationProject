@@ -13,6 +13,8 @@ namespace MyService
         GameObject justBlock;
         GameObject UIRoot = null;
 
+
+        int MaxOrder = 0;
         public GameObject GetUIRoot()
         {
             if (UIRoot == null)
@@ -125,10 +127,13 @@ namespace MyService
 
             GameObject bag = null;
             UIDic.TryGetValue(viewName, out bag);
+
+            bool IsContain = false;
             if (bag != null)
             {
                 //bag.GetComponent<IUserInterface>().RegEvent();
                 bag.SetActive(true);
+                IsContain = true;
             }
             else
             {
@@ -149,7 +154,20 @@ namespace MyService
             {
                 Debug.LogError("can't Find UI " + viewName);
             }
-            bag.GetComponent<Canvas>().sortingOrder = UIDic.Count * 10;
+
+            if (IsContain == false)
+            {
+                bag.GetComponent<Canvas>().sortingOrder = MaxOrder+1;
+                MaxOrder = MaxOrder + 1;
+            }
+            else
+            {
+                bag.GetComponent<Canvas>().sortingOrder = UIDic.Count * 10;
+                MaxOrder = UIDic.Count * 10 ;
+            }
+            
+
+            //UpdateOrder(bag);
             //if (needAlpha)
             //{
             //    var alpha = NGUITools.AddChild(UIRoot, alphaBlock);
@@ -185,6 +203,11 @@ namespace MyService
             //BackgroundSound.Instance.PlayEffect("sheet_opencenter");
             return bag;
         }
+
+        private void UpdateOrder(GameObject bag)
+        {
+        }
+
         /// <summary>
         /// 关闭a，打开b
         /// </summary>
@@ -298,6 +321,7 @@ namespace MyService
             }
             else
             {
+                //top.GetComponent<Canvas>().sortingOrder = top.GetComponent<Canvas>().sortingOrder - 10;
                 top.SetActive(false);
             }
             //top.GetComponent<IUserInterface>().DropEvent();//Close Remove Event

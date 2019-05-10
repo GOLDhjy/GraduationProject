@@ -26,6 +26,7 @@ namespace MyService
             AddState(new PlayerLockRoll());
             AddState(new PlayerLockRandomIdle());
             AddState(new PlayerLockAttack());
+            AddState(new PlayerLockHit());
             AddState(new PlayerLockDied());
         }
         //在改变状态时一定要执行取消事件
@@ -36,6 +37,7 @@ namespace MyService
             MyEventSystem.Instance.UnSubscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.UnSubscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.UnSubscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.UnSubscribe(HitArgs.Id, OnHitEvent);
             MyEventSystem.Instance.UnSubscribe(DieArgs.Id, OnEventDie);
             ChangeState(AIStateEnum.INVALID);
         }
@@ -47,6 +49,7 @@ namespace MyService
             MyEventSystem.Instance.Subscribe(DodgeArgs.Id, OnEventDodge);
             MyEventSystem.Instance.Subscribe(ChangeToMovementArgs.Id, OnEventChangeToMovement);
             MyEventSystem.Instance.Subscribe(CrouchArgs.Id, OnEventCrouch);
+            MyEventSystem.Instance.Subscribe(HitArgs.Id, OnHitEvent);
             MyEventSystem.Instance.Subscribe(DieArgs.Id, OnEventDie);
         }
         public void AddState(LockAIState state)
@@ -206,6 +209,29 @@ namespace MyService
             {
                 ChangeState(AIStateEnum.Movement);
             }
+        }
+        //被打事件
+        private void OnHitEvent(object sender, GameEventArgs e)
+        {
+            if (!CheckCanTransition())
+            {
+                return;
+            }
+            if (e == null)
+            {
+                Debug.LogError("NULL Reference");
+                return;
+            }
+            HitArgs args = e as HitArgs;
+            if (args.Hit)
+            {
+                ChangeState(AIStateEnum.Hit);
+            }
+            else
+            {
+                ChangeState(AIStateEnum.Movement);
+            }
+            
         }
         //Die事件
         private void OnEventDie(object sender, GameEventArgs e)

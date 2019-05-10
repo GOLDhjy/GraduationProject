@@ -16,6 +16,7 @@ namespace BehaviorDesigner.Runtime.Tasks
         {
             if (HPbar.Value != null)
             {
+                AudioService.Instance.Play(Contexts.sharedInstance.game.mainCameraEntity.gameTransform.Value.gameObject, AudioEnum.BGM, "IdleBGM");
                 UIService.Instance.PopView();
                 HPbar.Value = null;
             }

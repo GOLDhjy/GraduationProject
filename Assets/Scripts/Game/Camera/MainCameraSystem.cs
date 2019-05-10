@@ -37,7 +37,7 @@ public class MainCameraSystem : IInitializeSystem, IExecuteSystem
             m_MainCamera.gameTransform.Value.gameObject.AddComponent<AudioSource>();
             AudioSource audioSource = m_MainCamera.gameTransform.Value.GetComponent<AudioSource>();
             m_MainCamera.AddAudioSource(audioSource);
-            AudioService.Instance.PlayWithAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "BattleBGM");
+            AudioService.Instance.PlayWithAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "IdleBGM");
         //}
         //AudioService.Instance.PlayWiehAS(m_MainCamera.audioSource.Value, AudioEnum.BGM, "1");
     }

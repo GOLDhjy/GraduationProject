@@ -840,6 +840,7 @@
     <Compile Include="Assets\Scripts\AnimationSM\AttackAnim.cs" />
     <Compile Include="Assets\Scripts\AnimationSM\Boss1\Boss1AttackAnim.cs" />
     <Compile Include="Assets\Scripts\AnimationSM\DodgeAnim.cs" />
+    <Compile Include="Assets\Scripts\AnimationSM\HitAnimEnd.cs" />
     <Compile Include="Assets\Scripts\AnimationSM\RandomIdleAnim.cs" />
     <Compile Include="Assets\Scripts\BehaviorTreeAction\BOSS\CloseBossHpBar.cs" />
     <Compile Include="Assets\Scripts\BehaviorTreeAction\BOSS\DestroyObject.cs" />

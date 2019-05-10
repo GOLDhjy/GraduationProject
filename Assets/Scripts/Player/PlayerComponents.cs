@@ -16,6 +16,7 @@ public enum AnimStateEnum
     CrouchWalk,
     Jump,
     Attack,
+    Hit,
     Death
 }
 public enum PostEnum

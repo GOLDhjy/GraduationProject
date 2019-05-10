@@ -42,6 +42,7 @@ namespace BehaviorDesigner.Runtime.Tasks
                 scrip.m_State = BossStateEnum.Death;
                 ParticlesService.Instance.PlayPrefabParticle(self.transform.Find("Effect").gameObject, "Effect1");
                 UIService.Instance.PopView();
+                AudioService.Instance.Play(Contexts.sharedInstance.game.mainCameraEntity.gameTransform.Value.gameObject, AudioEnum.BGM, "IdleBGM");
 
                 return TaskStatus.Success;
             }

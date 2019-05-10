@@ -5,6 +5,7 @@ using BehaviorDesigner.Runtime.Tasks;
 using MyService;
 using UnityEngine.UI;
 using UI;
+using Entitas;
 
 namespace BehaviorDesigner.Runtime.Tasks
 {
@@ -16,6 +17,8 @@ namespace BehaviorDesigner.Runtime.Tasks
             if (HpBar.Value == null)
             {
                 HpBar.Value = UIService.Instance.PushView(GameConfigService.Instance.UIPrefabPath + "EnemyCanvas");
+                AudioService.Instance.Play(Contexts.sharedInstance.game.mainCameraEntity.gameTransform.Value.gameObject, AudioEnum.BGM, "BattleBGM");
+
                 HpBar.Value.GetComponent<EnemyView>().SetTarget(this.gameObject);
             }
         }
