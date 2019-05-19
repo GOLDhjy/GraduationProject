@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="这里的参数e的类型是EventArgs">
+    <Position X="11.497" Y="3.77" Height="0.527" Width="1.543" />
+  </Comment>
+  <Class Name="MyService.MyEventSystem">
+    <Position X="6.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAACAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\EventSystem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="m_EventHandle" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MyService.GameEventArgs" Collapsed="true">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UIEventArgs" Collapsed="true">
+    <Position X="7" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.MovementArgs" Collapsed="true">
+    <Position X="11.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.MouseMovementArgs" Collapsed="true">
+    <Position X="16" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.AttackArgs" Collapsed="true">
+    <Position X="16" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.RandomIdleArgs" Collapsed="true">
+    <Position X="4" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DodgeArgs" Collapsed="true">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CrouchArgs" Collapsed="true">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.HitArgs" Collapsed="true">
+    <Position X="17.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DieArgs" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeToMovementArgs" Collapsed="true">
+    <Position X="5.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.AudioArgs" Collapsed="true">
+    <Position X="10" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeViewArgs" Collapsed="true">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeGameStateArgs" Collapsed="true">
+    <Position X="16" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.StartLoadingViewArgs" Collapsed="true">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UpdateItemIconArgs" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeCurrentItemArgs" Collapsed="true">
+    <Position X="5.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UpdateHpBarArgs" Collapsed="true">
+    <Position X="7" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DescribeObjectArgs" Collapsed="true">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UseCurrentItemArgs" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.EventArgs" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MyService.Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="6.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="System.EventHandler&lt;TEventArgs&gt;">
+    <Position X="10.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

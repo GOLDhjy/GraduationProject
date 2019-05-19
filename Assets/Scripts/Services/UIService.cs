@@ -155,16 +155,18 @@ namespace MyService
                 Debug.LogError("can't Find UI " + viewName);
             }
 
-            if (IsContain == false)
-            {
-                bag.GetComponent<Canvas>().sortingOrder = MaxOrder+1;
-                MaxOrder = MaxOrder + 1;
-            }
-            else
-            {
-                bag.GetComponent<Canvas>().sortingOrder = UIDic.Count * 10;
-                MaxOrder = UIDic.Count * 10 ;
-            }
+            bag.GetComponent<Canvas>().sortingOrder = stack.Count * 10;
+            //if (IsContain == false)
+            //{
+            //    bag.GetComponent<Canvas>().sortingOrder = MaxOrder+1;
+            //    MaxOrder = MaxOrder + 1;
+            //}
+            //else
+            //{
+            //    bag.GetComponent<Canvas>().sortingOrder = UIDic.Count * 10;
+            //    MaxOrder = UIDic.Count * 10 ;
+            //}
+            //这里的Order有点小问题，应该是设置为stack的大小，而不是UIDic的大小。
             
 
             //UpdateOrder(bag);

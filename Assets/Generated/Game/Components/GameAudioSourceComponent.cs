@@ -11,6 +11,14 @@ public partial class GameEntity {
     public AudioSourceComponent audioSource { get { return (AudioSourceComponent)GetComponent(GameComponentsLookup.AudioSource); } }
     public bool hasAudioSource { get { return HasComponent(GameComponentsLookup.AudioSource); } }
 
+    public MyService.CameraViewModeController CameraViewModeController
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void AddAudioSource(UnityEngine.AudioSource newValue) {
         var index = GameComponentsLookup.AudioSource;
         var component = (AudioSourceComponent)CreateComponent(index, typeof(AudioSourceComponent));

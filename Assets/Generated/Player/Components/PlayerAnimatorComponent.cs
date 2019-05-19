@@ -11,6 +11,22 @@ public partial class PlayerEntity {
     public AnimatorComponent animator { get { return (AnimatorComponent)GetComponent(PlayerComponentsLookup.Animator); } }
     public bool hasAnimator { get { return HasComponent(PlayerComponentsLookup.Animator); } }
 
+    public MyService.MyEventSystem MyEventSystem
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public MyService.PlayerViewModeController PlayerViewModeController
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void AddAnimator(UnityEngine.Animator newValue) {
         var index = PlayerComponentsLookup.Animator;
         var component = (AnimatorComponent)CreateComponent(index, typeof(AnimatorComponent));

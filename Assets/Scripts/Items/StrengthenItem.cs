@@ -18,7 +18,7 @@ namespace MyService
 
         public StrengthenItem()
         {
-            Name = "阿攻糖";
+            Name = "飞雪";
             Id = 2;
             IconName = "Icon_Fireball_128";
             Describe = Name + "：强化自己，提高攻击力" + Value + "，持续" + UseTime+"秒";

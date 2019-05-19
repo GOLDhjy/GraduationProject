@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="这里的参数e的类型是EventArgs">
+    <Position X="46.934" Y="8.197" Height="0.527" Width="1.543" />
+  </Comment>
+  <Class Name="MyService.PlayerFreeModeState" Collapsed="true">
+    <Position X="16.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAEAAAABAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ViewMode\PlayerFreeModeState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AIPlayer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.IPlayerViewModeState" Collapsed="true">
+    <Position X="16.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAgAAAAAAAAQEAABAAAAAAIBAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\IPlayerViewModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.AIPlayer" Collapsed="true">
+    <Position X="19.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAAAQAAABIBCIAAGIDhAAAAAAAgAgBAAAAAACIA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\AIPlayer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.AIState" Collapsed="true">
+    <Position X="22.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQEAABAAAAAAIBAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\AIstate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerAttack" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAIAAQAAAAAAAAAAIAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerCrouch" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgABAAAAAAQAAAAAQAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerCrouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerDied" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACgAAAQAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerDied.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerHit" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerHit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerInvalid" Collapsed="true">
+    <Position X="16.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerInvalid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerJump" Collapsed="true">
+    <Position X="18.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerJump.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerMovement" Collapsed="true">
+    <Position X="20.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgABAAAAAAQAAAAAQAAABIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerRandomIdle" Collapsed="true">
+    <Position X="22" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerRandomIdle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerRoll" Collapsed="true">
+    <Position X="23.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAQAAIAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerRoll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockModeState" Collapsed="true">
+    <Position X="16.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAEAAAABAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ViewMode\PlayerLockModeState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AIPlayer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.LockAIPlayer" Collapsed="true">
+    <Position X="19.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAAAAAAABIBCIAAGIDhAAAAAAAgAgBAAAAAACIA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\LockAIPlayer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.LockAIState" Collapsed="true">
+    <Position X="22.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQEAABAAAAAAIBAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\LockAIState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockAttack" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAIAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockCrouch" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgABAAAAAAQAAAAAQAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockCrouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockDied" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACgAAAQAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockDied.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockHit" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockHit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayeLockInvalid" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockInvalid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockMovement" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgABAAAAAAQAAAAAQAAABIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockRandomIdle" Collapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockRandomIdle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerLockRoll" Collapsed="true">
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAQAAIAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerFSM\PlayerLockState\PlayerLockRoll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.PlayerViewModeController" Collapsed="true">
+    <Position X="12.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAFIBCIAAEADBAAAAAAAAAABAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\PlayerViewModeController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerEntity" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerEntity" Collapsed="true">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VgBo3oFDcIVDoQwQQigVEoDJIOIFAo4EAsZDkAjIKAA=</HashCode>
+      <FileName>Assets\Generated\Player\Components\PlayerAnimatorComponent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PlayerViewModeController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.Item">
+    <Position X="10.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAQACAQACAgAAAAAAAQAAQEAAAEAAAAAAAAAAgQ=</HashCode>
+      <FileName>Assets\Scripts\Items\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CameraViewModeController" Collapsed="true">
+    <Position X="17.25" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAFIBCIAAEADBAAAAAAAAAABAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\CameraViewModeController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MainCamera" />
+      <Property Name="CurrentState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.ICameraViewModeState" Collapsed="true">
+    <Position X="21" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAQAAAAQEAABAAAAAAIBAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ICameraViewModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CameraFreeModeState" Collapsed="true">
+    <Position X="17.5" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAgAAAAAAAAQAAAAAAAAAAJgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ViewMode\CameraFreeModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CameraInvalidModeState" Collapsed="true">
+    <Position X="19.75" Y="11.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ViewMode\CameraInvalidModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CameraLockModeState" Collapsed="true">
+    <Position X="22.5" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAQAAAiAAAAAAECQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\AI\FSM\ViewMode\CameraLockModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEntity" Collapsed="true">
+    <Position X="17" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgQgCAAgAEAgIAEgQAAQAAAAAAGCgAAAAwVAAAAAQ=</HashCode>
+      <FileName>Assets\Generated\Game\Components\GameAudioSourceComponent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CameraViewModeController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MyService.BloodVial">
+    <Position X="13.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAQAAAgAAAAAAAQAAQAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Items\BloodVial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.StrengthenItem">
+    <Position X="8.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAQAAAgAAAAAAAQAAQAAAAAAAAAgEAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Items\StrengthenItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HitAnimEnd">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAQAAAAAAYAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Scripts\AnimationSM\HitAnimEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ItemManager">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\MonoBehavior\ItemManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.MyEventSystem">
+    <Position X="42.25" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAACAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\EventSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.GameEventArgs" Collapsed="true">
+    <Position X="48.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UIEventArgs" Collapsed="true">
+    <Position X="42.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.MovementArgs" Collapsed="true">
+    <Position X="47" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.MouseMovementArgs" Collapsed="true">
+    <Position X="51.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.AttackArgs" Collapsed="true">
+    <Position X="51.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.RandomIdleArgs" Collapsed="true">
+    <Position X="39.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DodgeArgs" Collapsed="true">
+    <Position X="44" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.CrouchArgs" Collapsed="true">
+    <Position X="48.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.HitArgs" Collapsed="true">
+    <Position X="53" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DieArgs" Collapsed="true">
+    <Position X="51.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeToMovementArgs" Collapsed="true">
+    <Position X="41" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.AudioArgs" Collapsed="true">
+    <Position X="45.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeViewArgs" Collapsed="true">
+    <Position X="50" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeGameStateArgs" Collapsed="true">
+    <Position X="51.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.StartLoadingViewArgs" Collapsed="true">
+    <Position X="51.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UpdateItemIconArgs" Collapsed="true">
+    <Position X="39.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.ChangeCurrentItemArgs" Collapsed="true">
+    <Position X="41" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UpdateHpBarArgs" Collapsed="true">
+    <Position X="42.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.DescribeObjectArgs" Collapsed="true">
+    <Position X="44" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyService.UseCurrentItemArgs" Collapsed="true">
+    <Position X="45.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Services\EventService\GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.EventArgs" Collapsed="true">
+    <Position X="46" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MyService.Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="42.25" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.IUserInterface">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AYQAAAAAAEAAAAAAAIAAAAAAAAgACAAAAEAABIAABAA=</HashCode>
+      <FileName>Assets\Scripts\UI\IUserInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LocalPlayerComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameObjectComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransformComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ATKComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HpComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MaxHpComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MoveSpeedComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RotateSpeedComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ViewModeComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AnimStateComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PostComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FreeViewComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SwordComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RigidbodyComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ColliderComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AnimatorComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PlayerAudioComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LockEnemyComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackPackComponent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BossController">
+    <Position X="3" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAABCABACAAAAQAAAQAAEACAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MonoBehavior\NPC\BOSS1\BossController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_State" />
+      <Field Name="MyProperty" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BossProperty">
+    <Position X="5.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAABAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\MonoBehavior\NPC\BOSS1\BossController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AnimStateEnum" Collapsed="true">
+    <Position X="1.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAEgAAAAAAACIAAAABAIAAIAAgAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PostEnum" Collapsed="true">
+    <Position X="3.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerComponents.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BossStateEnum">
+    <Position X="0.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAIAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MonoBehavior\NPC\BOSS1\BossController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="System.EventHandler&lt;TEventArgs&gt;">
+    <Position X="46" Y="7.75" Width="2.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

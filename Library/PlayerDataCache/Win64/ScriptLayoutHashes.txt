@@ -176,6 +176,7 @@ b5ad3eafc85b336aa910dba2e7687591 Assembly-CSharp.dll:DuloGames.UI.UIGlobeFillInv
 75cc24a269fbe5ceeddcdfc0ccf39abe Assembly-CSharp.dll:DuloGames.UI.Test_UISpellSlot_Assign
 10a0f2537a0267e39353226ca30a6c63 Assembly-CSharp.dll:UI.StartView
 f79e7a791cfbc3be4c8d721981787d05 Assembly-CSharp.dll:DuloGames.UI.UIStepBar
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Boss1AttackAnim
 227fcfbfe007c6f48db10b66e4bea055 Assembly-CSharp.dll:DuloGames.UI.UIPagination
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowDescribe
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DodgeAnim
@@ -189,11 +190,12 @@ f332331876dc936438379dc515387010 Assembly-CSharp.dll:DuloGames.UI.UIEffectTransi
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AttackAnim
 fb8c12cb107ac6ddbe08da5ff82d3d11 Assembly-CSharp.dll:BehaviorDesigner.Runtime.BehaviorTree
 4a881807cbad27028a05ba650086617d Assembly-CSharp.dll:DuloGames.UI.UIInputCaretOffset
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Boss1AttackAnim
 6fac55b4a2f918b67c0c6f0f60a51185 Assembly-CSharp.dll:DuloGames.UI.Test_CompassTester
 384296b8da3b2d5f15fd97d8f044ebc0 Assembly-CSharp.dll:DuloGames.UI.UIBulletBar
 9ee499c38bf6e1bbbd5c60a817abe6bf Assembly-CSharp.dll:DuloGames.UI.UIScene
 c3ba560226b4c95cb13e5a653ae7bed3 Assembly-CSharp.dll:.ME_Reflection
-c427ebcc70979cdae21dbfd6841602e3 Assembly-CSharp.dll:.Boss1WeaponCollider
+d188efdbeab181d1d3c8fcbcf2d46cb1 Assembly-CSharp.dll:.Boss1WeaponCollider
 97edc7d96e049036634a9e17724066ca Assembly-CSharp.dll:DuloGames.UI.UIPlayAudio
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 78b206224573d05481417304a38476e1 Assembly-CSharp.dll:DuloGames.UI.UISelectField_List
